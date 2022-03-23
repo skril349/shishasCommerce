@@ -1,9 +1,9 @@
 import { Button } from "semantic-ui-react";
-
+import Fluid from "../components/Fluid/Fluid";
 export default function Home() {
   return (
     <div className="home">
-      <h1>Estamos en next JS</h1>
+      <Fluid />
     </div>
   );
 }
