@@ -1,9 +1,27 @@
-import { Button } from "semantic-ui-react";
 import Fluid from "../components/Fluid/Fluid";
+import { Image } from "semantic-ui-react";
+import shisha from "../shisha.png";
+import BasicLayout from "../layout/BasicLayout/BasicLayout";
 export default function Home() {
   return (
-    <div className="home">
+    <BasicLayout>
       <Fluid />
-    </div>
+      <div
+        style={{
+          height: "100vh",
+          background: "grey",
+        }}
+      >
+        Info
+      </div>
+      <div
+        style={{
+          height: "100vh",
+          background: "white",
+        }}
+      >
+        <Image src={shisha} size="medium" fluid />
+      </div>
+    </BasicLayout>
   );
 }

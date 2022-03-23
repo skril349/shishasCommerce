@@ -1,9 +1,8 @@
-import React, { Component } from "react";
-
+import React, { Component, useEffect } from "react";
+import { Button, Image } from "semantic-ui-react";
 import "../../node_modules/react-dat-gui/build/react-dat-gui.css";
-
 import FluidAnimation from "react-fluid-animation";
-
+import Header from "../Header";
 // import image from './lena.png'
 
 const defaultConfig = {
@@ -33,7 +32,9 @@ export default class Fluid extends Component {
         }}
       >
         <FluidAnimation config={config} animationRef={this._animationRef} />
-
+        <div>
+          <Header />
+        </div>
         <div
           style={{
             position: "absolute",
@@ -54,7 +55,7 @@ export default class Fluid extends Component {
         >
           <h1
             style={{
-              fontSize: "3em",
+              fontSize: "5em",
               textShadow: "2px 2px 8px rgba(0, 0, 0, 0.5)",
             }}
           >
@@ -79,5 +80,6 @@ export default class Fluid extends Component {
 
   _onReset = () => {
     this.setState({ config: { ...defaultConfig } });
+    _onClickRandomSplats();
   };
 }
