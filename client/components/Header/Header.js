@@ -28,7 +28,7 @@ export default function Header() {
 
 function Menu() {
   return (
-    <SemanticMenu>
+    <SemanticMenu className="ui secondary">
       <Link href="/orders">
         <SemanticMenu.Item as="a">ABOUT US</SemanticMenu.Item>
       </Link>
