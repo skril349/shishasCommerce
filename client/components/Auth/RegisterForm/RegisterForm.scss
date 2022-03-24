@@ -15,9 +15,6 @@
   box-shadow: 50px 50px 50px 50px rgba(255, 255, 255, 0.2);
 
   .register-form {
-    .ui.input {
-      border-radius: 20px;
-    }
     .ant-input-affix-wrapper {
       box-shadow: 2px 2px 2px 2px rgba(158, 152, 152, 0.14);
     }
@@ -37,6 +34,7 @@
       input {
         background-color: transparent;
         font-size: $defaultFontSize;
+        border-radius: 20px;
         padding: 10px 20px 10px 20px !important;
         &:focus {
           border-color: $primary-color;
@@ -51,6 +49,15 @@
     }
 
     &__button {
+      margin-bottom: 20px;
+      .ui.button {
+        background-color: transparent;
+        color: $font-light;
+        margin: 0;
+        min-height: 0;
+        align-items: center;
+        justify-content: center;
+      }
       width: 100%;
       font-size: $defaultFontSize;
       background-color: $primary-color;
@@ -73,4 +80,8 @@
 
 .ui.form .ui.input input {
   border-radius: 20px;
+  &:focus,
+  &:active {
+    border-radius: 20px;
+  }
 }

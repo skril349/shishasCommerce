@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import Layout from "../../../layout/Layout/Layout";
 import Link from "next/link";
 import { registerApi } from "../../../api/user";
+import { toast } from "react-toastify";
 
 export default function RegisterForm(props) {
   const { showLoginForm } = props;
@@ -13,8 +14,15 @@ export default function RegisterForm(props) {
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
-      console.log(formData);
-      await registerApi(formData);
+      setLoading(true);
+      const response = await registerApi(formData);
+      console.log(response);
+      // if (response?.jwt) {
+      //   toast.success("usuario registrado correctamente");
+      // } else {
+      //   toast.error("error al registrar el usuario");
+      // }
+      setLoading(false);
     },
   });
 
@@ -73,14 +81,18 @@ export default function RegisterForm(props) {
               onChange={formik.handleChange}
               error={formik.errors.age}
             />
-            <div className="actions">
-              <Link href="/createHookah">
-                <a>Login</a>
-              </Link>
-              <Button type="submit" className="submit" loading={loading}>
-                registrar
+            <div className="register-form__button">
+              <Button
+                type="submit"
+                className="register-form__button"
+                loading={loading}
+              >
+                Register
               </Button>
             </div>
+            <Link href="/createHookah">
+              <a>Login</a>
+            </Link>
           </Form>
         </div>
       </div>
