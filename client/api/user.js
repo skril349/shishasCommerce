@@ -1,7 +1,6 @@
 import { BASE_PATH } from "../utils/constants";
 
 export async function registerApi(formData) {
-  console.log(formData);
   try {
     const url = `${BASE_PATH}/auth/local/register`;
     const params = {
@@ -11,9 +10,13 @@ export async function registerApi(formData) {
       },
       body: JSON.stringify(formData),
     };
-    const response = await fetch(url, params);
-    const result = await response.json();
-    return result;
+    if (formData.age < 18) {
+      return null;
+    } else {
+      const response = await fetch(url, params);
+      const result = await response.json();
+      return result;
+    }
   } catch (error) {
     return null;
   }

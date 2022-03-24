@@ -66,14 +66,13 @@ export default function RegisterForm(props) {
               onChange={formik.handleChange}
               error={formik.errors.repeatPassword}
             />
-            {/* <Form.Checkbox
+            <Form.Input
               name="age"
-              type="checkbox"
+              type="age"
+              placeholder="Age"
               onChange={formik.handleChange}
-              value="true"
-              label="I have +18 years old"
-              error={formik.errors.repeatPassword}
-            /> */}
+              error={formik.errors.age}
+            />
             <div className="actions">
               <Link href="/createHookah">
                 <a>Login</a>
@@ -97,7 +96,7 @@ function initialValues() {
     email: "",
     password: "",
     repeatPassword: "",
-    age: false,
+    age: "",
   };
 }
 function validationSchema() {
@@ -110,6 +109,6 @@ function validationSchema() {
     repeatPassword: Yup.string()
       .required(true)
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
-    age: Yup.bool().required(true),
+    age: Yup.number().required(true),
   };
 }
