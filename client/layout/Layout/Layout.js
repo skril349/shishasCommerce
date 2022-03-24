@@ -8,7 +8,9 @@ export default function Layout(props) {
     <>
       <Container fluid className="layout">
         <Header />
-        {children}
+        <Container fluid className="content">
+          {children}
+        </Container>
       </Container>
     </>
   );

@@ -35,6 +35,9 @@ function Menu() {
       <Link href="/aboutUs">
         <SemanticMenu.Item as="a">ABOUT US</SemanticMenu.Item>
       </Link>
+      <Link href="/register">
+        <SemanticMenu.Item as="a">REGISTER</SemanticMenu.Item>
+      </Link>
       <Link href="/createHookah">
         <SemanticMenu.Item as="a">CREATE HOOKAH</SemanticMenu.Item>
       </Link>

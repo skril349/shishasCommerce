@@ -14,7 +14,7 @@ import React, { useState } from "react";
 import { Form, Input, Button, notification } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import Layout from "../../../layout/Layout/Layout";
-
+import Link from "next/link";
 export default function LoginForm() {
   const changeForm = (e) => {
     setInputs({
@@ -67,8 +67,13 @@ export default function LoginForm() {
                 className="login-form__button"
                 //   onClick={login}
               >
-                Entrar
+                Login
               </Button>
+            </Form.Item>
+            <Form.Item className="login-form__register">
+              <Link href="register">
+                <a>Register</a>
+              </Link>
             </Form.Item>
           </Form>
         </div>
