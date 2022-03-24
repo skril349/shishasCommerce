@@ -24,7 +24,6 @@ export default class Fluid extends Component {
 
   render() {
     const { config } = this.state;
-
     return (
       <div
         style={{
@@ -57,6 +56,7 @@ export default class Fluid extends Component {
             style={{
               fontSize: "5em",
               textShadow: "2px 2px 8px rgba(0, 0, 0, 0.5)",
+              color: "#fff",
             }}
           >
             DARK OWL

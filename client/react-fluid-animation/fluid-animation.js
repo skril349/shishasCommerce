@@ -105,7 +105,6 @@ export default class FluidAnimation {
     this._pointers[0].dy = (e.offsetY - this._pointers[0].y) * 10.0;
     this._pointers[0].x = e.offsetX;
     this._pointers[0].y = e.offsetY;
-    console.log(e);
   };
 
   onMouseDown = (e) => {
@@ -124,6 +123,7 @@ export default class FluidAnimation {
   };
 
   onTouchStart = (e) => {
+    console.log("evento e", e);
     for (let i = 0; i < e.touches.length; ++i) {
       this._pointers[i].down = true;
       this._pointers[i].color = [
@@ -147,6 +147,7 @@ export default class FluidAnimation {
   };
 
   onTouchEnd = (e) => {
+    console.log("e End", e);
     for (let i = 0; i < e.touches.length; ++i) {
       this._pointers[i].down = false;
     }

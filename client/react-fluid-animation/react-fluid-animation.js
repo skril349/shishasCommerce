@@ -14,13 +14,13 @@ class ReactFluidAnimation extends Component {
     animationRef: PropTypes.func,
     size: PropTypes.shape({
       width: PropTypes.number,
-      height: PropTypes.number
-    })
+      height: PropTypes.number,
+    }),
   };
 
   static defaultProps = {
     config: defaultConfig,
-    style: {}
+    style: {},
   };
 
   componentWillReceiveProps(props) {
@@ -29,7 +29,7 @@ class ReactFluidAnimation extends Component {
     if (props.config) {
       this._animation.config = {
         ...props.config,
-        defaultConfig
+        defaultConfig,
       };
     }
   }
@@ -57,7 +57,7 @@ class ReactFluidAnimation extends Component {
           width: "100%",
           height: "100%",
           overflow: "hidden",
-          ...style
+          ...style,
         }}
         {...rest}
         ref={this._containerRef}
@@ -72,7 +72,7 @@ class ReactFluidAnimation extends Component {
           onTouchEnd={this._onTouchEnd}
           style={{
             width: "100%",
-            height: "100%"
+            height: "100%",
           }}
         />
       </div>
@@ -104,6 +104,7 @@ class ReactFluidAnimation extends Component {
 
   _onTouchStart = (event) => {
     this._animation.onTouchStart(event.nativeEvent);
+    console.log("event", event);
   };
 
   _onTouchMove = (event) => {
@@ -139,7 +140,7 @@ class ReactFluidAnimation extends Component {
     this._animation = new FluidAnimation({
       canvas: this._canvas,
       content,
-      config
+      config,
     });
 
     if (animationRef) {

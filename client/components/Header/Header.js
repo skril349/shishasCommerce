@@ -29,14 +29,12 @@ export default function Header() {
 function Menu() {
   return (
     <SemanticMenu className="ui secondary menu">
+      <Link href="/">
+        <SemanticMenu.Item as="a">HOME</SemanticMenu.Item>
+      </Link>
       <Link href="/aboutUs">
         <SemanticMenu.Item as="a">ABOUT US</SemanticMenu.Item>
       </Link>
-
-      <Link href="/wishlist">
-        <SemanticMenu.Item as="a">FAVORITES</SemanticMenu.Item>
-      </Link>
-
       <Link href="/createHookah">
         <SemanticMenu.Item as="a">CREATE HOOKAH</SemanticMenu.Item>
       </Link>

@@ -3,7 +3,9 @@
 //Layouts
 @import "../layout/BasicLayout/BasicLayout.scss";
 //pages
-
+@import "../pages/createHookah.scss";
 //components
 @import "../components/Header/Header.scss";
 @import "../components/Header/TopBar/TopBar.scss";
+@import "../components/Modal/BasicModal/BasicModal.scss";
+@import "../components/Auth/LoginForm/LoginForm.scss";

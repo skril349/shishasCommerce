@@ -1,0 +1,27 @@
+.create-hookah {
+  height: 100vh;
+  width: 100%;
+  background-color: gray;
+  .column1 {
+    float: left;
+    padding: 10px;
+    height: 100vh;
+  }
+  .column2 {
+    float: left;
+    width: 110%;
+    padding: 10px;
+    height: 100vh;
+    &:hover {
+      width: 50%;
+      ~ .column1 {
+        width: 50%;
+      }
+    }
+  }
+}
+
+// style={{
+//     height: "100vh",
+//     background: "grey",
+//   }}
