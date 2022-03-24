@@ -1,17 +1,17 @@
 import React, { Component, useEffect } from "react";
 import { Button, Image } from "semantic-ui-react";
 import "../../node_modules/react-dat-gui/build/react-dat-gui.css";
-import FluidAnimation from "react-fluid-animation";
+import FluidAnimation from "../../react-fluid-animation";
 import Header from "../Header";
 // import image from './lena.png'
 
 const defaultConfig = {
-  textureDownsample: 1,
+  textureDownsample: 2,
   densityDissipation: 0.98,
   velocityDissipation: 0.99,
   pressureDissipation: 0.8,
   pressureIterations: 25,
-  curl: 30,
+  curl: 20,
   splatRadius: 0.005,
 };
 

@@ -20,7 +20,7 @@ export default function Home() {
           background: "white",
         }}
       >
-        <Image src={shisha} size="medium" fluid />
+        HEY
       </div>
     </BasicLayout>
   );
