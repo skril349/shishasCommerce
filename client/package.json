@@ -11,6 +11,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "antd": "^4.19.3",
+    "formik": "^2.2.9",
     "next": "12.1.0",
     "node-sass": "^7.0.1",
     "prop-types": "^15.6.2",
@@ -21,7 +22,8 @@
     "react-github-corner": "^2.3.0",
     "react-scripts": "^1.1.4",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.1.2"
+    "semantic-ui-react": "^2.1.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "eslint": "8.11.0",

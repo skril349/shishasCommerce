@@ -1,140 +1,115 @@
-// import React from "react";
-// import Layout from "../../../layout/Layout";
-// export default function LoginForm() {
-//   return (
-//     <Layout>
-//       <div className="login-form">
-//         <h1 className="text">LoginForm</h1>
-//       </div>
-//     </Layout>
-//   );
-// }
-
 import React, { useState } from "react";
-import { Form, Input, Button, notification } from "antd";
-import { UserOutlined, LockOutlined, MailOutlined } from "@ant-design/icons";
+import { Form, Button } from "semantic-ui-react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import Layout from "../../../layout/Layout/Layout";
 import Link from "next/link";
-export default function RegisterForm() {
-  const changeForm = (e) => {
-    setInputs({
-      ...inputs,
-      [e.target.name]: e.target.value,
-    });
-  };
+import { registerApi } from "../../../api/user";
+
+export default function RegisterForm(props) {
+  const { showLoginForm } = props;
+  const [loading, setLoading] = useState(false);
+  const formik = useFormik({
+    initialValues: initialValues(),
+    validationSchema: Yup.object(validationSchema()),
+    onSubmit: async (formData) => {
+      console.log(formData);
+      await registerApi(formData);
+    },
+  });
 
   return (
     <Layout>
       <div className="register-form-div">
         <div className="register-form-space">
-          <Form
-            className="register-form"
-            // onChange={changeForm}
-          >
-            <Form.Item>
-              <Input
-                size="large"
-                prefix={
-                  <UserOutlined
-                    style={{ color: "rgba(0, 0, 0, 0.25)", fontSize: "200%" }}
-                  />
-                }
-                type="user"
-                name="user"
-                placeholder="Name"
-                className="register-form__input"
-              />
-            </Form.Item>
-            <Form.Item>
-              <Input
-                size="large"
-                prefix={
-                  <UserOutlined
-                    style={{ color: "rgba(0, 0, 0, 0.25)", fontSize: "200%" }}
-                  />
-                }
-                type="lastname"
-                name="lastname"
-                placeholder="Lastname"
-                className="register-form__input"
-              />
-            </Form.Item>
-            <Form.Item>
-              <Input
-                size="large"
-                prefix={
-                  <UserOutlined
-                    style={{ color: "rgba(0, 0, 0, 0.25)", fontSize: "200%" }}
-                  />
-                }
-                type="Username"
-                name="Username"
-                placeholder="Username"
-                className="register-form__input"
-              />
-            </Form.Item>
-            <Form.Item>
-              <Input
-                size="large"
-                prefix={
-                  <MailOutlined
-                    style={{ color: "rgba(0, 0, 0, 0.25)", fontSize: "200%" }}
-                  />
-                }
-                type="email"
-                name="email"
-                placeholder="email"
-                className="register-form__input"
-              />
-            </Form.Item>
-
-            <Form.Item>
-              <Input
-                size="large"
-                prefix={
-                  <LockOutlined
-                    style={{ color: "rgba(0, 0, 0, 0.25)", fontSize: "200%" }}
-                  />
-                }
-                type="password"
-                name="password"
-                placeholder="password"
-                className="register-form__input"
-                //   onChange={changeForm}
-              />
-            </Form.Item>
-            <Form.Item>
-              <Input
-                size="large"
-                prefix={
-                  <LockOutlined
-                    style={{ color: "rgba(0, 0, 0, 0.25)", fontSize: "200%" }}
-                  />
-                }
-                type="repeatPassword"
-                name="repeatPassword"
-                placeholder="Repeat Password"
-                className="register-form__input"
-                //   onChange={changeForm}
-              />
-            </Form.Item>
-            <Form.Item>
-              <Button
-                htmlType="submit"
-                className="register-form__button"
-                //   onClick={register}
-              >
-                Registrarse
-              </Button>
-            </Form.Item>
-            <Form.Item className="register-form__register">
-              <Link href="register">
+          <Form className="register-form" onSubmit={formik.handleSubmit}>
+            <Form.Input
+              name="name"
+              type="text"
+              className="register-form__input"
+              placeholder="nombre"
+              onChange={formik.handleChange}
+              error={formik.errors.name}
+            />
+            <Form.Input
+              name="lastname"
+              type="text"
+              placeholder="apellidos"
+              onChange={formik.handleChange}
+              error={formik.errors.lastname}
+            />
+            <Form.Input
+              name="username"
+              type="text"
+              placeholder="Nombre de Usuario"
+              onChange={formik.handleChange}
+              error={formik.errors.username}
+            />
+            <Form.Input
+              name="email"
+              type="text"
+              placeholder="Correo Electrónico"
+              onChange={formik.handleChange}
+              error={formik.errors.email}
+            />
+            <Form.Input
+              name="password"
+              type="password"
+              placeholder="Contraseña"
+              onChange={formik.handleChange}
+              error={formik.errors.password}
+            />
+            <Form.Input
+              name="repeatPassword"
+              type="password"
+              placeholder="Repetir contraseña"
+              onChange={formik.handleChange}
+              error={formik.errors.repeatPassword}
+            />
+            {/* <Form.Checkbox
+              name="age"
+              type="checkbox"
+              onChange={formik.handleChange}
+              value="true"
+              label="I have +18 years old"
+              error={formik.errors.repeatPassword}
+            /> */}
+            <div className="actions">
+              <Link href="/createHookah">
                 <a>Login</a>
               </Link>
-            </Form.Item>
+              <Button type="submit" className="submit" loading={loading}>
+                registrar
+              </Button>
+            </div>
           </Form>
         </div>
       </div>
     </Layout>
   );
+}
+
+function initialValues() {
+  return {
+    name: "",
+    lastname: "",
+    username: "",
+    email: "",
+    password: "",
+    repeatPassword: "",
+    age: false,
+  };
+}
+function validationSchema() {
+  return {
+    name: Yup.string().required(true),
+    lastname: Yup.string().required(true),
+    username: Yup.string().required(true),
+    email: Yup.string().email(true).required(true),
+    password: Yup.string().required(true),
+    repeatPassword: Yup.string()
+      .required(true)
+      .oneOf([Yup.ref("password"), null], "Passwords must match"),
+    age: Yup.bool().required(true),
+  };
 }

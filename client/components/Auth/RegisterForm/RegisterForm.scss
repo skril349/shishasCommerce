@@ -15,6 +15,9 @@
   box-shadow: 50px 50px 50px 50px rgba(255, 255, 255, 0.2);
 
   .register-form {
+    .ui.input {
+      border-radius: 20px;
+    }
     .ant-input-affix-wrapper {
       box-shadow: 2px 2px 2px 2px rgba(158, 152, 152, 0.14);
     }
@@ -22,9 +25,7 @@
     .ant-form-item:last-of-type {
       margin: 0;
     }
-    &__input {
-      border-radius: 20px;
-
+    .ui.form .ui.input input {
       .ant-input-prefix {
         i {
           font-size: $defaultFontSize;
@@ -68,4 +69,8 @@
       }
     }
   }
+}
+
+.ui.form .ui.input input {
+  border-radius: 20px;
 }
