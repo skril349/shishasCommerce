@@ -1,83 +1,75 @@
-// import React from "react";
-// import Layout from "../../../layout/Layout";
-// export default function LoginForm() {
-//   return (
-//     <Layout>
-//       <div className="login-form">
-//         <h1 className="text">LoginForm</h1>
-//       </div>
-//     </Layout>
-//   );
-// }
-
 import React, { useState } from "react";
-import { Form, Input, Button, notification } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import Layout from "../../../layout/Layout/Layout";
 import Link from "next/link";
-export default function LoginForm() {
-  const changeForm = (e) => {
-    setInputs({
-      ...inputs,
-      [e.target.name]: e.target.value,
-    });
-  };
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { Form, Button } from "semantic-ui-react";
+import { loginApi } from "../../../api/user";
 
+export default function LoginForm() {
+  const [loading, setLoading] = useState(false);
+  const formik = useFormik({
+    initialValues: initialValues(),
+    validationSchema: Yup.object(validationSchema()),
+    onSubmit: async (formData) => {
+      setLoading(true);
+      const response = await loginApi(formData);
+      console.log(response);
+      if (response?.jwt) {
+        console.log("login ok");
+      } else {
+        console.log("error");
+      }
+      setLoading(false);
+    },
+  });
   return (
     <Layout>
       <div className="login-form-div">
         <div className="login-form-space">
-          <Form
-            className="login-form"
-            // onChange={changeForm}
-          >
-            <Form.Item>
-              <Input
-                size="large"
-                prefix={
-                  <UserOutlined
-                    style={{ color: "rgba(0, 0, 0, 0.25)", fontSize: "200%" }}
-                  />
-                }
-                type="email"
-                name="email"
-                placeholder="correo electronico"
-                className="login-form__input"
-              />
-            </Form.Item>
-
-            <Form.Item>
-              <Input
-                size="large"
-                prefix={
-                  <LockOutlined
-                    style={{ color: "rgba(0, 0, 0, 0.25)", fontSize: "200%" }}
-                  />
-                }
-                type="password"
-                name="password"
-                placeholder="contraseña"
-                className="login-form__input"
-                //   onChange={changeForm}
-              />
-            </Form.Item>
-            <Form.Item>
-              <Button
-                htmlType="submit"
-                className="login-form__button"
-                //   onClick={login}
-              >
-                Login
-              </Button>
-            </Form.Item>
-            <Form.Item className="login-form__register">
-              <Link href="register">
-                <a>Register</a>
-              </Link>
-            </Form.Item>
+          <Form className="login-form" onSubmit={formik.handleSubmit}>
+            <Form.Input
+              name="identifier"
+              type="text"
+              placeholder="email"
+              onChange={formik.handleChange}
+              error={formik.errors.identifier}
+            />
+            <Form.Input
+              name="password"
+              type="password"
+              placeholder="contraseña"
+              onChange={formik.handleChange}
+              error={formik.errors.password}
+            />
+            <Button
+              loading={loading}
+              type="submit"
+              className="login-form__button"
+              //   onClick={login}
+            >
+              Login
+            </Button>
+            <Link href="/register">
+              <a>Register</a>
+            </Link>
           </Form>
         </div>
       </div>
     </Layout>
   );
+}
+
+function initialValues() {
+  return {
+    identifier: "",
+    password: "",
+  };
+}
+function validationSchema() {
+  return {
+    identifier: Yup.string().email(true).required(true),
+    password: Yup.string().required(true),
+  };
 }

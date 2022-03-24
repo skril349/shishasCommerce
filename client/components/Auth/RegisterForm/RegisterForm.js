@@ -17,18 +17,16 @@ export default function RegisterForm(props) {
       setLoading(true);
       const response = await registerApi(formData);
       console.log(response);
-      // if (response?.jwt) {
-      //   toast.success("usuario registrado correctamente");
-      // } else {
-      //   toast.error("error al registrar el usuario");
-      // }
-      setLoading(false);
+      if (response?.jwt) {
+        alert("usuario registrado correctamente");
+        window.location.href = "/createHookah";
+      }
     },
   });
 
   return (
     <Layout>
-      <div className="register-form-div">
+      <div fluid className="register-form-div">
         <div className="register-form-space">
           <Form className="register-form" onSubmit={formik.handleSubmit}>
             <Form.Input

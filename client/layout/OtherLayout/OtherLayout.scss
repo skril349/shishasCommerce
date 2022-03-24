@@ -1,14 +1,6 @@
-.layout {
-  background-color: black;
-  overflow-y: scroll;
-  &-header {
-    background-color: black;
-  }
-}
-
-.layout {
+.other-layout {
   min-height: 100vh;
-  background-color: black;
+  background-image: url("/bg-web.jpg");
   background-size: cover;
   background-position: center;
   .content {
