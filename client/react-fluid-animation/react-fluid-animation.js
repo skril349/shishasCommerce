@@ -89,6 +89,7 @@ class ReactFluidAnimation extends Component {
 
   _onMouseUp = (event) => {
     event.preventDefault();
+
     this._animation.onMouseDown(event.nativeEvent);
   };
 
@@ -145,7 +146,7 @@ class ReactFluidAnimation extends Component {
 
     if (animationRef) {
       animationRef(this._animation);
-      // this._animation.addRandomSplats(parseInt(Math.random() * 20) + 5)
+      this._animation.addRandomSplats(parseInt(Math.random() * 20) + 5);
     }
   }
 }

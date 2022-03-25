@@ -5,7 +5,7 @@ import useAuth from "../hooks/useAuth";
 import { Image } from "semantic-ui-react";
 export default function CreateHookah() {
   const { auth } = useAuth();
-
+  if (auth === undefined) return null;
   return (
     <Layout>
       {!auth ? (
@@ -15,6 +15,8 @@ export default function CreateHookah() {
           <div className="column1">
             <Image src="/shisha.png" fluid />
           </div>
+          <div className="column2">HEY</div>
+          <div className="column3">HEY</div>
         </div>
       )}
     </Layout>

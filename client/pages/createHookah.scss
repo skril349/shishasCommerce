@@ -3,14 +3,32 @@
   width: 100%;
   background-color: black;
   .column1 {
+    display: flex;
     float: left;
-    height: 100vh;
-    width: 50%;
+    width: 35%;
+    .ui.fluid.image {
+      top: 130px;
+      height: calc(100vh - 130px);
+    }
 
     &:hover {
       -webkit-filter: drop-shadow(100px 100px 100px #222);
       filter: drop-shadow(20px 20px 20px #222);
     }
+  }
+  .column2 {
+    display: flex;
+    float: left;
+    margin-top: 130px;
+    width: 40%;
+    background-color: red;
+  }
+  .column3 {
+    margin-top: 130px;
+    display: flex;
+    float: left;
+    width: 25%;
+    background-color: blue;
   }
 }
 

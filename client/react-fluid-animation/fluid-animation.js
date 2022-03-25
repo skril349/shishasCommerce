@@ -100,6 +100,14 @@ export default class FluidAnimation {
   }
 
   onMouseMove = (e) => {
+    this._pointers[0].down = true;
+    this._pointers[0].color = [
+      // Math.random() + 0.2,
+      // Math.random() + 0.2,
+      // Math.random() + 0.2
+      0.323568259996091, 0.346547175038215, 0.38194092284379183,
+    ];
+
     this._pointers[0].moved = this._pointers[0].down;
     this._pointers[0].dx = (e.offsetX - this._pointers[0].x) * 10.0;
     this._pointers[0].dy = (e.offsetY - this._pointers[0].y) * 10.0;
@@ -391,11 +399,11 @@ export default class FluidAnimation {
   }
 
   _getRandomSplat() {
-    const color = [Math.random() * 10, Math.random() * 10, Math.random() * 10];
+    const color = [0.323568259996091, 0.346547175038215, 0.38194092284379183];
     const x = this._canvas.width * Math.random();
     const y = this._canvas.height * Math.random();
-    const dx = 1000 * (Math.random() - 0.5);
-    const dy = 1000 * (Math.random() - 0.5);
+    const dx = 1000 * (Math.random() - 0.9);
+    const dy = 1000 * (Math.random() - 0.9);
 
     return { x, y, dx, dy, color };
   }
