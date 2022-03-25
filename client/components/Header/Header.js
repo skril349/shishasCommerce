@@ -36,7 +36,7 @@ function Menu(props) {
       <Link href="/">
         <SemanticMenu.Item as="a">HOME</SemanticMenu.Item>
       </Link>
-      <Link href="/aboutUs">
+      <Link href="/about">
         <SemanticMenu.Item as="a">ABOUT US</SemanticMenu.Item>
       </Link>
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../layout/Layout";
 import LoginForm from "../components/Auth/LoginForm";
 import useAuth from "../hooks/useAuth";
+import { Image } from "semantic-ui-react";
 export default function CreateHookah() {
   const { auth } = useAuth();
 
@@ -12,7 +13,7 @@ export default function CreateHookah() {
       ) : (
         <div className="create-hookah">
           <div className="column1">
-            <h1>LOGIN HECHO</h1>
+            <Image src="/shisha.png" fluid />
           </div>
         </div>
       )}

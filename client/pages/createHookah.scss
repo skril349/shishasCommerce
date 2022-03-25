@@ -1,22 +1,15 @@
 .create-hookah {
   height: 100vh;
   width: 100%;
-  background-color: gray;
+  background-color: black;
   .column1 {
     float: left;
-    padding: 10px;
     height: 100vh;
-  }
-  .column2 {
-    float: left;
-    width: 110%;
-    padding: 10px;
-    height: 100vh;
+    width: 50%;
+
     &:hover {
-      width: 50%;
-      ~ .column1 {
-        width: 50%;
-      }
+      -webkit-filter: drop-shadow(100px 100px 100px #222);
+      filter: drop-shadow(20px 20px 20px #222);
     }
   }
 }
