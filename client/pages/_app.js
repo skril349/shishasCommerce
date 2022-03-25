@@ -7,12 +7,12 @@ import { ToastContainer, toast } from "react-toastify";
 import AuthContext from "../context/AuthContext";
 import React, { useState, useMemo, useEffect } from "react";
 import jwtDecode from "jwt-decode";
-import { getToken, setToken } from "../api/token";
+import { getToken, removeToken, setToken } from "../api/token";
 
 export default function MyApp({ Component, pageProps }) {
   const [auth, setAuth] = useState(undefined);
   const [reloadUser, setReloadUser] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {
     const token = getToken();
     if (token) {
@@ -25,6 +25,7 @@ export default function MyApp({ Component, pageProps }) {
     }
     setReloadUser(false);
   }, [reloadUser]);
+
   const login = (token) => {
     setToken(token);
     setAuth({
@@ -33,11 +34,19 @@ export default function MyApp({ Component, pageProps }) {
     });
   };
 
+  const logout = () => {
+    if (auth) {
+      removeToken();
+      setAuth(null);
+      router.push("/");
+    }
+  };
+
   const authData = useMemo(
     () => ({
       auth,
       login,
-      logout: () => null,
+      logout,
       setReloadUser,
     }),
     [auth]

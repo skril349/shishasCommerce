@@ -9,6 +9,7 @@ export default function Home() {
       <div
         style={{
           height: "100vh",
+          width: "100vw",
           background: "grey",
         }}
       >
@@ -17,6 +18,7 @@ export default function Home() {
       <div
         style={{
           height: "100vh",
+          width: "100vw",
           background: "white",
         }}
       >

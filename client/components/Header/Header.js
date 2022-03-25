@@ -8,7 +8,10 @@ import {
   Label,
   Button,
 } from "semantic-ui-react";
+import useAuth from "../../hooks/useAuth";
+
 export default function Header() {
+  const { logout, auth } = useAuth();
   return (
     // <SemanticMenu className="header">
     //   {/* <TopBar /> */}
@@ -20,13 +23,14 @@ export default function Header() {
     // </SemanticMenu>
     <div className="header">
       <Container className="header__right">
-        <Menu />
+        <Menu logout={logout} auth={auth} />
       </Container>
     </div>
   );
 }
 
-function Menu() {
+function Menu(props) {
+  const { logout, auth } = props;
   return (
     <SemanticMenu className="ui secondary menu">
       <Link href="/">
@@ -35,12 +39,17 @@ function Menu() {
       <Link href="/aboutUs">
         <SemanticMenu.Item as="a">ABOUT US</SemanticMenu.Item>
       </Link>
-      <Link href="/register">
-        <SemanticMenu.Item as="a">REGISTER</SemanticMenu.Item>
-      </Link>
+
       <Link href="/createHookah">
         <SemanticMenu.Item as="a">CREATE HOOKAH</SemanticMenu.Item>
       </Link>
+      {auth ? (
+        <SemanticMenu.Item onClick={logout}> LOGOUT</SemanticMenu.Item>
+      ) : (
+        <Link href="/register">
+          <SemanticMenu.Item as="a">REGISTER</SemanticMenu.Item>
+        </Link>
+      )}
     </SemanticMenu>
   );
 }

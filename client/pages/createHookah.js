@@ -11,8 +11,9 @@ export default function CreateHookah() {
         <LoginForm />
       ) : (
         <div className="create-hookah">
-          <div className="column1">Info</div>
-          <div className="column2">Info</div>
+          <div className="column1">
+            <h1>LOGIN HECHO</h1>
+          </div>
         </div>
       )}
     </Layout>
