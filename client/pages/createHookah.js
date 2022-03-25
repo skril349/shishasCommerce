@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../layout/Layout";
 import LoginForm from "../components/Auth/LoginForm";
+import useAuth from "../hooks/useAuth";
 export default function CreateHookah() {
-  const [auth, setAuth] = useState(false);
+  const { auth } = useAuth();
+
   return (
     <Layout>
       {!auth ? (

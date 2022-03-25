@@ -6,8 +6,10 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Form, Button } from "semantic-ui-react";
 import { loginApi } from "../../../api/user";
+import useAuth from "../../../hooks/useAuth";
 
 export default function LoginForm() {
+  const { login } = useAuth();
   const [loading, setLoading] = useState(false);
   const formik = useFormik({
     initialValues: initialValues(),
@@ -15,9 +17,8 @@ export default function LoginForm() {
     onSubmit: async (formData) => {
       setLoading(true);
       const response = await loginApi(formData);
-      console.log(response);
       if (response?.jwt) {
-        console.log("login ok");
+        login(response.jwt);
       } else {
         console.log("error");
       }
