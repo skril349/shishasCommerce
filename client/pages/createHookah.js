@@ -3,6 +3,8 @@ import Layout from "../layout/Layout";
 import LoginForm from "../components/Auth/LoginForm";
 import useAuth from "../hooks/useAuth";
 import { Image } from "semantic-ui-react";
+import SishaImages from "../components/CreateHookah/ShishaImages";
+
 export default function CreateHookah() {
   const { auth } = useAuth();
   if (auth === undefined) return null;
@@ -13,7 +15,7 @@ export default function CreateHookah() {
       ) : (
         <div className="create-hookah">
           <div className="column1">
-            <Image src="/shisha.png" fluid />
+            <SishaImages />
           </div>
           <div className="column2">HEY</div>
           <div className="column3">HEY</div>

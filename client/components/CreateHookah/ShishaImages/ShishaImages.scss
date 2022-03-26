@@ -1,0 +1,42 @@
+.shisha-images {
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  &__cono {
+    &:hover {
+      -webkit-filter: drop-shadow(100px 100px 100px rgb(255, 0, 0));
+      filter: drop-shadow(20px 20px 20px rgb(255, 0, 0));
+    }
+  }
+  &__plato {
+    &:hover {
+      -webkit-filter: drop-shadow(100px 100px 100px rgb(255, 0, 0));
+      filter: drop-shadow(20px 20px 20px rgb(255, 0, 0));
+    }
+  }
+  &__mastil {
+    &:hover {
+      -webkit-filter: drop-shadow(100px 100px 100px rgb(255, 0, 0));
+      filter: drop-shadow(20px 20px 20px rgb(255, 0, 0));
+    }
+  }
+
+  &__purga {
+    &:hover {
+      -webkit-filter: drop-shadow(100px 100px 100px rgb(255, 0, 0));
+      filter: drop-shadow(20px 20px 20px rgb(255, 0, 0));
+    }
+  }
+  &__filtro {
+    &:hover {
+      -webkit-filter: drop-shadow(100px 100px 100px rgb(255, 0, 0));
+      filter: drop-shadow(20px 20px 20px rgb(255, 0, 0));
+    }
+  }
+  &__silenciador {
+    &:hover {
+      -webkit-filter: drop-shadow(100px 100px 100px rgb(255, 0, 0));
+      filter: drop-shadow(20px 20px 20px rgb(255, 0, 0));
+    }
+  }
+}
