@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../../../layout/Layout";
 
-export default function Home3() {
+export default function HomeCom() {
   return (
     <Layout>
       Estamos en home

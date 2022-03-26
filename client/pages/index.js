@@ -2,6 +2,7 @@ import Fluid from "../components/Fluid/Fluid";
 import { Image } from "semantic-ui-react";
 import shisha from "../shisha.png";
 import BasicLayout from "../layout/BasicLayout/BasicLayout";
+//import HomeCom from "../components/Menu/HomeCom";
 export default function Home() {
   return (
     <BasicLayout>
@@ -14,6 +15,9 @@ export default function Home() {
         }}
       >
         Info
+       {/*} <div style={{ height: "100vh", width: "100vw" }}>
+      <Home />
+      </div>*/}
       </div>
       <div
         style={{
