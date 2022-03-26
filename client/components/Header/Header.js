@@ -33,7 +33,7 @@ function Menu(props) {
   const { logout, auth } = props;
   return (
     <SemanticMenu className="ui secondary menu">
-      <Link href="/">
+      <Link href="/home2">
         <SemanticMenu.Item as="a">HOME</SemanticMenu.Item>
       </Link>
       <Link href="/about">
