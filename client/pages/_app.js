@@ -11,7 +11,7 @@ import { getToken, removeToken, setToken } from "../api/token";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CartContext from "../context/CartContext";
-
+import { getProductsCart, addProductCart } from "../api/cart";
 export default function MyApp({ Component, pageProps }) {
   const [auth, setAuth] = useState(undefined);
   const [reloadUser, setReloadUser] = useState(false);
@@ -55,11 +55,19 @@ export default function MyApp({ Component, pageProps }) {
     [auth]
   );
 
+  const addProduct = (product) => {
+    const token = getToken();
+    if (token) {
+      addProductCart(product);
+    } else {
+      toast.warning("Para comprar un producto hay que registrarse");
+    }
+  };
   const cartData = useMemo(
     () => ({
       productsCart: 0,
-      addProductCart: () => null,
-      getProductsCart: () => null,
+      addProductCart: (product) => addProduct(product),
+      getProductsCart: getProductsCart,
       removeProductCart: () => null,
       removeAllProductsCArt: () => null,
     }),
