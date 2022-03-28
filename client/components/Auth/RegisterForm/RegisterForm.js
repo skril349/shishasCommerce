@@ -6,8 +6,10 @@ import Layout from "../../../layout/Layout/Layout";
 import Link from "next/link";
 import { registerApi } from "../../../api/user";
 import { toast } from "react-toastify";
-
+import useAuth from "../../../hooks/useAuth";
 export default function RegisterForm(props) {
+  const { login } = useAuth();
+
   const { showLoginForm } = props;
   const [loading, setLoading] = useState(false);
   const formik = useFormik({
@@ -18,6 +20,8 @@ export default function RegisterForm(props) {
       const response = await registerApi(formData);
       console.log(response);
       if (response?.jwt) {
+        setLoading(true);
+        login(response.jwt);
         alert("usuario registrado correctamente");
         window.location.href = "/createHookah";
       }

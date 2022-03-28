@@ -10,6 +10,7 @@ import jwtDecode from "jwt-decode";
 import { getToken, removeToken, setToken } from "../api/token";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import CartContext from "../context/CartContext";
 
 export default function MyApp({ Component, pageProps }) {
   const [auth, setAuth] = useState(undefined);
@@ -53,21 +54,34 @@ export default function MyApp({ Component, pageProps }) {
     }),
     [auth]
   );
+
+  const cartData = useMemo(
+    () => ({
+      productsCart: 0,
+      addProductCart: () => null,
+      getProductsCart: () => null,
+      removeProductCart: () => null,
+      removeAllProductsCArt: () => null,
+    }),
+    []
+  );
   if (auth === undefined) return null;
   return (
     <AuthContext.Provider value={authData}>
-      <Component {...pageProps} />
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable
-        pauseOnHover
-      />
+      <CartContext.Provider value={cartData}>
+        <Component {...pageProps} />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable
+          pauseOnHover
+        />
+      </CartContext.Provider>
     </AuthContext.Provider>
   );
 }
