@@ -4,10 +4,13 @@ export default function SishaImages() {
   return (
     <div className="shisha-images">
       <div className="shisha-images__cono">
-        <Image src="/shishaCutted/cono.png" fluid />
+        <Image
+          src="/shishaCutted/cono.png"
+          fluid={true}
+          onClick={() => console.log("CLICKED")}
+        />
       </div>
       <div className="shisha-images__plato">
-        {" "}
         <Image src="/shishaCutted/plato.png" fluid />
       </div>
       <div className="shisha-images__mastil">

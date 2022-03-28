@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cones",
+  "info": {
+    "name": "cone",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "front_image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "info": {
+      "type": "string",
+      "required": true
+    },
+    "discount": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/diffusers",
+      "handler": "diffuser.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/diffusers/count",
+      "handler": "diffuser.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/diffusers/:id",
+      "handler": "diffuser.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/diffusers",
+      "handler": "diffuser.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/diffusers/:id",
+      "handler": "diffuser.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/diffusers/:id",
+      "handler": "diffuser.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

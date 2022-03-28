@@ -2,10 +2,16 @@
   width: 100%;
   flex-direction: column;
   display: flex;
+
   &__cono {
     &:hover {
       -webkit-filter: drop-shadow(100px 100px 100px rgb(255, 0, 0));
       filter: drop-shadow(20px 20px 20px rgb(255, 0, 0));
+    }
+    img.ui.fluid.image:focus {
+      -webkit-filter: drop-shadow(100px 100px 100px rgb(255, 0, 0));
+      filter: drop-shadow(20px 20px 20px rgb(255, 0, 0));
+      background-color: red;
     }
   }
   &__plato {

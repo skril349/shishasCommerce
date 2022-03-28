@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/lower-stems",
+      "handler": "lower-stem.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/lower-stems/count",
+      "handler": "lower-stem.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/lower-stems/:id",
+      "handler": "lower-stem.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/lower-stems",
+      "handler": "lower-stem.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/lower-stems/:id",
+      "handler": "lower-stem.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/lower-stems/:id",
+      "handler": "lower-stem.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
