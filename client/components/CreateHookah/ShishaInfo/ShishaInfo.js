@@ -6,6 +6,8 @@ export default function ShishaInfo(props) {
   console.log(shisha, selected);
   if (!shisha) return null;
   if (!selected) return null;
+  if (selectCarrousel === undefined) return null;
+
   return (
     <div className="shisha-info">
       <div>
