@@ -57,11 +57,13 @@ export default function CreateHookah() {
               selectCarrousel={selectCarrousel}
             />
           </div>
-          <CarrouselShisha
-            shisha={shisha}
-            selected={selected}
-            setSelectCarrousel={setSelectCarrousel}
-          />
+          <div className="column2">
+            <CarrouselShisha
+              shisha={shisha}
+              selected={selected}
+              setSelectCarrousel={setSelectCarrousel}
+            />
+          </div>
           {selected ? (
             <div className="column3">
               <ShishaInfo
