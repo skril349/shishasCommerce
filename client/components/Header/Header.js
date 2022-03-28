@@ -58,12 +58,24 @@ function Menu(props) {
       {auth ? (
         <>
           {user !== null && (
-            <Link href="/edit/me">
+            <Link href="/editMe">
               <SemanticMenu.Item as="a">
                 {user.name.toUpperCase()} {user.lastname.toUpperCase()}
               </SemanticMenu.Item>
             </Link>
           )}
+          <Link href="/wishlist">
+            <SemanticMenu.Item>
+              <Icon name="heart" color="white" />
+            </SemanticMenu.Item>
+          </Link>
+
+          <Link href="/cart">
+            <SemanticMenu.Item>
+              <Icon name="cart" color="white" />
+            </SemanticMenu.Item>
+          </Link>
+
           <SemanticMenu.Item onClick={logout}>
             <Icon name="power off" color="white" />
           </SemanticMenu.Item>
