@@ -36,6 +36,7 @@ export default function RegisterForm(props) {
               placeholder="nombre"
               onChange={formik.handleChange}
               error={formik.errors.name}
+              normalize={(value) => (value || "").toUpperCase()}
             />
             <Form.Input
               name="lastname"
@@ -43,6 +44,7 @@ export default function RegisterForm(props) {
               placeholder="apellidos"
               onChange={formik.handleChange}
               error={formik.errors.lastname}
+              normalize={(value) => (value || "").toUpperCase()}
             />
             <Form.Input
               name="username"
@@ -100,8 +102,8 @@ export default function RegisterForm(props) {
 
 function initialValues() {
   return {
-    name: "",
-    lastname: "",
+    name: "".toUpperCase(),
+    lastname: "".toUpperCase(),
     username: "",
     email: "",
     password: "",
