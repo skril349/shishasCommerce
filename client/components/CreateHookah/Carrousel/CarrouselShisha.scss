@@ -1,0 +1,24 @@
+.carrousel-shisha {
+  margin: 0 -5px;
+  display: flex;
+  float: left;
+  margin-top: 250px;
+  width: 40%;
+
+  .slick-slide {
+    padding: 5px;
+  }
+
+  .slick-arrow {
+    z-index: 1;
+    &::before {
+      font-size: 30px;
+    }
+    &.slick-next {
+      right: 20%;
+    }
+    &.slick-prev {
+      left: 20%;
+    }
+  }
+}

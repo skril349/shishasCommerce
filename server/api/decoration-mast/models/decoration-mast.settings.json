@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "decoration_masts",
   "info": {
-    "name": "decoration_mast"
+    "name": "decoration_mast",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -20,7 +21,7 @@
       "required": true,
       "default": "short"
     },
-    "frontal_image": {
+    "front_image": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [

@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "purges",
   "info": {
-    "name": "purge"
+    "name": "purge",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -27,7 +28,7 @@
       "required": false,
       "type": "integer"
     },
-    "frontal_image": {
+    "front_image": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [

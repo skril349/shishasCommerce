@@ -43,7 +43,6 @@ export default function Header() {
 
 function Menu(props) {
   const { logout, auth, user } = props;
-  console.log(user);
   return (
     <SemanticMenu className="ui secondary menu">
       <Link href="/">

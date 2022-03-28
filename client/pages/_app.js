@@ -8,6 +8,8 @@ import AuthContext from "../context/AuthContext";
 import React, { useState, useMemo, useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import { getToken, removeToken, setToken } from "../api/token";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function MyApp({ Component, pageProps }) {
   const [auth, setAuth] = useState(undefined);

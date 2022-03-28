@@ -4,6 +4,8 @@ import LoginForm from "../components/Auth/LoginForm";
 import useAuth from "../hooks/useAuth";
 import { Image } from "semantic-ui-react";
 import SishaImages from "../components/CreateHookah/ShishaImages";
+import ShishaInfo from "../components/CreateHookah/ShishaInfo";
+import CarrouselShisha from "../components/CreateHookah/Carrousel/CarrouselShisha";
 import {
   getConesApi,
   getDecorationMastsApi,
@@ -17,6 +19,8 @@ import {
 export default function CreateHookah() {
   const { auth } = useAuth();
   const [shisha, setShisha] = useState(null);
+  const [selected, setSelected] = useState(null);
+  const [selectCarrousel, setSelectCarrousel] = useState(0);
   useEffect(() => {
     (async () => {
       const cones = await getConesApi();
@@ -47,10 +51,26 @@ export default function CreateHookah() {
       ) : (
         <div className="create-hookah">
           <div className="column1">
-            <SishaImages shisha={shisha} />
+            <SishaImages
+              shisha={shisha}
+              setSelected={setSelected}
+              selectCarrousel={selectCarrousel}
+            />
           </div>
-          <div className="column2">HEY</div>
-          <div className="column3">HEY</div>
+          <CarrouselShisha
+            shisha={shisha}
+            selected={selected}
+            setSelectCarrousel={setSelectCarrousel}
+          />
+          {selected ? (
+            <div className="column3">
+              <ShishaInfo
+                shisha={shisha}
+                selected={selected}
+                selectCarrousel={selectCarrousel}
+              />
+            </div>
+          ) : null}
         </div>
       )}
     </Layout>

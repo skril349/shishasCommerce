@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "lower_stems",
   "info": {
-    "name": "lower_stem"
+    "name": "lower_stem",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -26,7 +27,7 @@
     "discount": {
       "type": "integer"
     },
-    "frontal_image": {
+    "front_image": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [
