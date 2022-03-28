@@ -4,10 +4,42 @@ import LoginForm from "../components/Auth/LoginForm";
 import useAuth from "../hooks/useAuth";
 import { Image } from "semantic-ui-react";
 import SishaImages from "../components/CreateHookah/ShishaImages";
+import {
+  getConesApi,
+  getDecorationMastsApi,
+  getDiffusersApi,
+  getLowerStemsApi,
+  getMastsApi,
+  getPlatesApi,
+  getPurgesApi,
+} from "../api/shisha";
 
 export default function CreateHookah() {
   const { auth } = useAuth();
+  const [shisha, setShisha] = useState(null);
+  useEffect(() => {
+    (async () => {
+      const cones = await getConesApi();
+      const plates = await getPlatesApi();
+      const masts = await getMastsApi();
+      const decorationMast = await getDecorationMastsApi();
+      const purges = await getPurgesApi();
+      const lowerStems = await getLowerStemsApi();
+      const diffusers = await getDiffusersApi();
+      setShisha({
+        cones,
+        plates,
+        masts,
+        decorationMast,
+        purges,
+        lowerStems,
+        diffusers,
+      });
+    })();
+  }, []);
+
   if (auth === undefined) return null;
+
   return (
     <Layout>
       {!auth ? (
@@ -15,7 +47,7 @@ export default function CreateHookah() {
       ) : (
         <div className="create-hookah">
           <div className="column1">
-            <SishaImages />
+            <SishaImages shisha={shisha} />
           </div>
           <div className="column2">HEY</div>
           <div className="column3">HEY</div>

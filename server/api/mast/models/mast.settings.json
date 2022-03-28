@@ -21,7 +21,7 @@
       "required": true,
       "default": "short"
     },
-    "frontal_image": {
+    "front_image": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [
