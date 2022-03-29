@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../../layout/Layout";
 import useCart from "../../../hooks/useCart";
+import { getComponentByIdAndSelectedApi } from "../../../api/shisha";
 export default function Cart() {
   const { getProductsCart } = useCart();
-  const products = getProductsCart();
+  const products = JSON.parse(getProductsCart());
   const [productsData, setProductsData] = useState(null);
-
+  console.log(productsData);
   useEffect(() => {
     (async () => {
       const productsTemp = [];
+      for await (const product of products) {
+        const data = await getComponentByIdAndSelectedApi(
+          product[0],
+          product[1]
+        );
+        data.quantity = product[2];
+        console.log(data);
+        productsTemp.push(data);
+      }
+      setProductsData(productsTemp);
     })();
   }, []);
 
-  console.log(products);
   return products ? <FullCart products={products} /> : <EmptyCart />;
 }
 
