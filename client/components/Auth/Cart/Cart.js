@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../../../layout/Layout";
 import useCart from "../../../hooks/useCart";
 import { getComponentByIdAndSelectedApi } from "../../../api/shisha";
+import SummaryCart from "./SummaryCart/SummaryCart";
 export default function Cart() {
   const { getProductsCart } = useCart();
   const products = JSON.parse(getProductsCart());
@@ -23,7 +24,7 @@ export default function Cart() {
     })();
   }, []);
 
-  return products ? <FullCart products={products} /> : <EmptyCart />;
+  return products ? <FullCart products={productsData} /> : <EmptyCart />;
 }
 
 function EmptyCart() {
@@ -44,7 +45,7 @@ function FullCart(props) {
     <Layout>
       <div className="cart">
         <div className="full-cart">
-          <h1>Carrito</h1>
+          <SummaryCart products={products} />
         </div>
       </div>
     </Layout>
