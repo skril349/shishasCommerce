@@ -7,25 +7,36 @@ export function getProductsCart() {
   if (!cart) {
     return null;
   } else {
-    const products = cart.split("]");
+    const products = cart.split(",");
     return products;
   }
 }
+let cartArray = [];
 
 export function addProductCart(product) {
   const cart = getProductsCart();
-  if (!cart) {
-    localStorage.setItem(CART, product);
+  const cartJson = JSON.parse(cart);
+  cartArray = cartJson;
+  if (!cartJson) {
+    cartArray = [];
+    cartArray.push(product);
+    localStorage.setItem(CART, JSON.stringify(cartArray));
+
     toast.success("Producto añadido al carrito");
   } else {
-    const productFound = includes(cart, product);
+    console.log(product);
+
+    console.log(cartArray);
+    const productFound = includes(cartArray, product);
+    console.log(productFound);
     if (productFound) {
       //aumentar cantidad
-      // product.quantity += 1;
+      console.log("trobat");
     } else {
-      // product.quantity = 1;
-      cart.push(product);
-      localStorage.setItem(CART, cart);
+      cartArray.push(product);
+
+      localStorage.setItem(CART, JSON.stringify(cartArray));
+
       toast.success("Producto añadido al carrito");
     }
   }
