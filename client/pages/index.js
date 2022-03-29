@@ -3,6 +3,8 @@ import { Image } from "semantic-ui-react";
 import shisha from "../shisha.png";
 import BasicLayout from "../layout/BasicLayout/BasicLayout";
 //import HomeCom from "../components/Menu/HomeCom";
+import Footer3 from "../components/footer"; //per probarlo
+
 export default function Home() {
   return (
     <BasicLayout>
@@ -27,6 +29,7 @@ export default function Home() {
         }}
       >
         HEY
+        <Footer3/>
       </div>
     </BasicLayout>
   );

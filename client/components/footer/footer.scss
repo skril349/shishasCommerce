@@ -1,0 +1,106 @@
+/** {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  text-decoration: none;
+}*/
+
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@400;700&family=Roboto&display=swap");
+/*https://fonts.google.com/specimen/Abril+Fatface*/
+
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lobster&family=Open+Sans:wght@400;700&family=Roboto&display=swap");
+/*https://fonts.google.com/specimen/Lobster*/
+footer {
+  background-color: #212121; /**/
+  width: 100%;
+  padding: 50px 0px; /*50px vertical 0px horizontal*/
+  /*background-image: url(../Images/background-footer.svg);
+  background-size: cover;*/
+  /*como es svg se puede cambiar la propiedad color:
+  -webkit-mask-image: url("../Images/background-footer.svg");
+  mask-image: url("../Images/background-footer.svg");*/
+}
+
+.container__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  /* margin-top: 0px; */
+  margin-bottom: 50px;
+}
+
+.box__footer {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+/*.box__footer .logo img {
+    width: 180px;
+}
+*/
+.box__footer .terms {
+  max-width: 350px;
+  margin-top: 20px;
+  font-weight: 500;
+  color: #7a7a7a;
+  font-size: 18px;
+}
+
+.box__footer h2 {
+  font-family: "Abril Fatface", cursive;
+  /**/
+  font-size: 30px; /**/
+  margin-bottom: 30px;
+  color: #343434;
+  font-weight: 700;
+}
+
+.box__footer a {
+  font-family: "Lobster", cursive;
+  /**/
+  font-size: 20px; /**/
+  margin-top: 10px;
+  color: #7a7a7a;
+  font-weight: 600;
+}
+
+.box__footer a:hover {
+  opacity: 0.8;
+  /**/
+  font-size: 30px; /**/
+}
+/*ICONOS
+.box__footer a .fab{
+    font-size: 20px;
+}*/
+
+.box__copyright {
+  max-width: 2000px;
+  margin: auto;
+  text-align: center;
+  padding: 0px 40px;
+}
+
+.box__copyright p {
+  margin-top: 30px;
+  color: #7a7a7a;
+}
+.box__copyright hr {
+  border: none;
+  height: 1px;
+  background-color: #7a7a7a;
+}
+
+/*FALTEN ESTILS AL H3*/
+.box__footer h3 {
+  font-family: "Abril Fatface", cursive;
+  /**/
+  font-size: 25px; /**/
+  margin-bottom: 30px;
+  color: #343434;
+  font-weight: 700;
+}
