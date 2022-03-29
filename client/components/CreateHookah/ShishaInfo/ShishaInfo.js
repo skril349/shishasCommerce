@@ -10,13 +10,6 @@ export default function ShishaInfo(props) {
   if (!selected) return null;
   if (selectCarrousel === undefined) return null;
 
-  const addProductItem = async (id) => {
-    if (selected === "cones") {
-      const response = await getConeApi(id);
-      addProductCart(response);
-    }
-  };
-
   return (
     <div className="shisha-info">
       <div>
@@ -32,8 +25,7 @@ export default function ShishaInfo(props) {
         <Button
           onClick={() => {
             console.log(shisha[selected][selectCarrousel].id);
-            //addProductItem(shisha[selected][selectCarrousel].id);
-            addProductCart([shisha[selected][selectCarrousel].id, selected]);
+            addProductCart([shisha[selected][selectCarrousel].id, selected, 1]);
           }}
         >
           Add Cart
