@@ -5,7 +5,8 @@ import useCart from "../../../hooks/useCart";
 export default function ShishaInfo(props) {
   const { shisha, selected, selectCarrousel } = props;
   const { addProductCart, getProductsCart } = useCart();
-  console.log(shisha, selected);
+  console.log("SHISHA INFO", shisha[selected]);
+  console.log("HEHEHEHEHEEH", shisha, selected, selectCarrousel);
   if (!shisha) return null;
   if (!selected) return null;
   if (selectCarrousel === undefined) return null;
@@ -13,13 +14,27 @@ export default function ShishaInfo(props) {
   return (
     <div className="shisha-info">
       <div>
-        <h1>{shisha[selected][selectCarrousel].name}</h1>
+        <h1>
+          {shisha[selected][selectCarrousel].name
+            ? shisha[selected][selectCarrousel].name
+            : ""}
+        </h1>
       </div>
       <div>
-        <p>{shisha[selected][selectCarrousel].info}</p>
+        <p>
+          {shisha[selected][selectCarrousel].info
+            ? shisha[selected][selectCarrousel].info
+            : ""}
+        </p>
       </div>
       <div>
-        <p>Precio: {shisha[selected][selectCarrousel].price} €</p>
+        <p>
+          Precio:
+          {shisha[selected][selectCarrousel].price
+            ? shisha[selected][selectCarrousel].price
+            : ""}
+          €
+        </p>
       </div>
       <div>
         <Button

@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/decoration-masts",
+      "path": "/decorationMasts",
       "handler": "decoration-mast.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/decoration-masts/count",
+      "path": "/decorationMasts/count",
       "handler": "decoration-mast.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/decoration-masts/:id",
+      "path": "/decorationMasts/:id",
       "handler": "decoration-mast.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/decoration-masts",
+      "path": "/decorationMasts",
       "handler": "decoration-mast.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/decoration-masts/:id",
+      "path": "/decorationMasts/:id",
       "handler": "decoration-mast.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/decoration-masts/:id",
+      "path": "/decorationMasts/:id",
       "handler": "decoration-mast.delete",
       "config": {
         "policies": []

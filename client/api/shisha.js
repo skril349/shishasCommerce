@@ -50,7 +50,7 @@ export async function getMastsApi() {
 
 export async function getDecorationMastsApi() {
   try {
-    const url = `${BASE_PATH}/decoration-masts`;
+    const url = `${BASE_PATH}/decorationMasts`;
     const response = await fetch(url);
     const result = await response.json();
     return result;
@@ -74,7 +74,7 @@ export async function getPurgesApi() {
 
 export async function getLowerStemsApi() {
   try {
-    const url = `${BASE_PATH}/lower-stems`;
+    const url = `${BASE_PATH}/lowerStems`;
     const response = await fetch(url);
     const result = await response.json();
     return result;

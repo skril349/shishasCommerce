@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/lower-stems",
+      "path": "/lowerStems",
       "handler": "lower-stem.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/lower-stems/count",
+      "path": "/lowerStems/count",
       "handler": "lower-stem.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/lower-stems/:id",
+      "path": "/lowerStems/:id",
       "handler": "lower-stem.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/lower-stems",
+      "path": "/lowerStems",
       "handler": "lower-stem.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/lower-stems/:id",
+      "path": "/lowerStems/:id",
       "handler": "lower-stem.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/lower-stems/:id",
+      "path": "/lowerStems/:id",
       "handler": "lower-stem.delete",
       "config": {
         "policies": []
