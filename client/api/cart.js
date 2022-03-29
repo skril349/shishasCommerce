@@ -87,3 +87,18 @@ export function addProductCart(product) {
     }
   }
 }
+
+export function countProductsCart() {
+  const cart = JSON.parse(getProductsCart());
+  if (!cart) {
+    return 0;
+  } else {
+    var val = 0;
+
+    for (let i = 0; i < cart.length; i++) {
+      let value = cart[i];
+      val += value[2];
+    }
+    return val;
+  }
+}

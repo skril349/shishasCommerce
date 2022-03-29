@@ -10,9 +10,10 @@ import {
 } from "semantic-ui-react";
 import useAuth from "../../hooks/useAuth";
 import { getMeApi } from "../../api/user";
-
+import useCart from "../../hooks/useCart";
 export default function Header() {
   const { logout, auth } = useAuth();
+
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
@@ -42,6 +43,8 @@ export default function Header() {
 }
 
 function Menu(props) {
+  const { productsCart } = useCart();
+
   const { logout, auth, user } = props;
   return (
     <SemanticMenu className="ui secondary menu">
@@ -73,6 +76,9 @@ function Menu(props) {
           <Link href="/cart">
             <SemanticMenu.Item>
               <Icon name="cart" color="white" />
+              <Label color="red" floating circular>
+                {productsCart}
+              </Label>
             </SemanticMenu.Item>
           </Link>
 
