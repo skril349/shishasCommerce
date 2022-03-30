@@ -3,18 +3,19 @@ import { Button, Form } from "semantic-ui-react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import toast from "react-toastify";
-import { updateNameApi } from "../../../api/user";
+import { updateEmailApi } from "../../../api/user";
 import useAuth from "../../../hooks/useAuth";
-export default function ChangeNameForm(props) {
+
+export default function ChangeEmailForm(props) {
   const { user, setReloadUser } = props;
   const { logout } = useAuth();
   const [loading, setLoading] = useState(false);
   const formik = useFormik({
-    initialValues: initialValues(user.name, user.lastname),
+    initialValues: initialValues(user.email),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       setLoading(true);
-      const response = await updateNameApi(user.id, formData, logout);
+      const response = await updateEmailApi(user.id, formData.email, logout);
       console.log(response);
 
       if (!response) {
@@ -29,23 +30,26 @@ export default function ChangeNameForm(props) {
   });
 
   return (
-    <div className="change-name-form">
-      <h4>Cambia tu nombre y apellidos</h4>
+    <div className="change-email-form">
+      <h4>
+        Cambia tu email <span>(Tu email actual es: {user.email})</span>
+      </h4>
       <Form onSubmit={formik.handleSubmit}>
         <Form.Group widths="equal">
           <Form.Input
-            name="name"
-            placeholder="Tu nuevo nombre"
+            name="email"
+            placeholder="Tu nuevo email"
             onChange={formik.handleChange}
-            value={formik.values.name}
-            error={formik.errors.name}
+            value={formik.values.email}
+            error={formik.errors.email}
           />
+
           <Form.Input
-            name="lastname"
-            placeholder="Tus nuevos apellidos"
+            name="repeatEmail"
+            placeholder="confirma tu email"
             onChange={formik.handleChange}
-            value={formik.values.lastname}
-            error={formik.errors.lastname}
+            value={formik.values.repeatEmail}
+            error={formik.errors.repeatEmail}
           />
         </Form.Group>
         <Button type="sumbit" loading={loading}>
@@ -56,16 +60,22 @@ export default function ChangeNameForm(props) {
   );
 }
 
-function initialValues(name, lastname) {
+function initialValues(email) {
   return {
-    name: name || "",
-    lastname: lastname || "",
+    email: email || "",
+    repeatEmail: email || "",
   };
 }
 
 function validationSchema() {
   return {
-    name: Yup.string().required(true),
-    lastname: Yup.string().required(true),
+    email: Yup.string()
+      .email(true)
+      .required(true)
+      .oneOf([Yup.ref("repeatEmail")], true),
+    repeatEmail: Yup.string()
+      .email(true)
+      .required(true)
+      .oneOf([Yup.ref("email")], true),
   };
 }

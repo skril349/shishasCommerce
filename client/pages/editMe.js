@@ -7,7 +7,7 @@ import { getMeApi } from "../api/user";
 
 export default function EditMe() {
   const router = useRouter();
-  const { auth, logout } = useAuth();
+  const { auth, logout, setReloadUser } = useAuth();
 
   const [user, setUser] = useState(undefined);
 
@@ -26,7 +26,7 @@ export default function EditMe() {
   }
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
-      <Edit user={user} />
+      <Edit user={user} setReloadUser={setReloadUser} />
     </div>
   );
 }
