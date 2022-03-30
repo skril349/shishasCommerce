@@ -15,7 +15,7 @@ export default function SummaryCart(props) {
       finalPrice += product.discount ? discounting(product) : product.price;
     });
     setTotalPrice(finalPrice);
-  }, [products]);
+  }, [products, reloadCart]);
   if (!products) {
     return null;
   }
