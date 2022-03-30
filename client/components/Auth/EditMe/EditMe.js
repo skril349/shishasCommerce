@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Layout from "../../../layout/Layout";
 import ChangeNameForm from "../../Account/ChangeNameForm";
 import ChangeEmailForm from "../../Account/ChangeEmailForm/ChangeEmailForm";
+import ChangePasswordForm from "../../Account/ChangePasswordForm";
 export default function EditMe(props) {
   const { user, setReloadUser } = props;
   return (
@@ -22,6 +23,7 @@ function Configuration(props) {
       <div className="data">
         <ChangeNameForm user={user} setReloadUser={setReloadUser} />
         <ChangeEmailForm user={user} setReloadUser={setReloadUser} />
+        <ChangePasswordForm user={user} setReloadUser={setReloadUser} />
       </div>
     </div>
   );
