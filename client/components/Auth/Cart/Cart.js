@@ -31,9 +31,13 @@ export default function Cart() {
   }, [reloadCart]);
 
   return products ? (
-    <FullCart products={productsData} setReloadCart={setReloadCart} />
+    <Layout>
+      <FullCart products={productsData} setReloadCart={setReloadCart} />
+    </Layout>
   ) : (
-    <EmptyCart />
+    <Layout>
+      <EmptyCart />
+    </Layout>
   );
 }
 
@@ -52,12 +56,10 @@ function EmptyCart() {
 function FullCart(props) {
   const { products, setReloadCart } = props;
   return (
-    <Layout>
-      <div className="cart">
-        <div className="full-cart">
-          <SummaryCart products={products} setReloadCart={setReloadCart} />
-        </div>
+    <div className="cart">
+      <div className="full-cart">
+        <SummaryCart products={products} setReloadCart={setReloadCart} />
       </div>
-    </Layout>
+    </div>
   );
 }
