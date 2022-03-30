@@ -75,7 +75,11 @@ function Menu(props) {
 
           <Link href="/cart">
             <SemanticMenu.Item>
-              <Icon name="cart" color="white" />
+              <Icon
+                name="cart"
+                color="white"
+                style={{ background: "transparent" }}
+              />
               {productsCart > 0 && (
                 <Label color="red" floating circular>
                   {productsCart}
