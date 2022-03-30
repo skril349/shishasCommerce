@@ -2228,6 +2228,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+class@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/class/-/class-0.1.4.tgz#92620d448694603457a39da296554d36ceea2b1f"
+  integrity sha1-kmINRIaUYDRXo52illVNNs7qKx8=
+
 classnames@2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
