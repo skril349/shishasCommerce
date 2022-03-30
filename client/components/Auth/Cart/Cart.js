@@ -14,16 +14,18 @@ export default function Cart() {
   useEffect(() => {
     (async () => {
       const productsTemp = [];
-      for await (const product of products) {
-        const data = await getComponentByIdAndSelectedApi(
-          product[0],
-          product[1]
-        );
-        data.quantity = product[2];
-        console.log(data);
-        productsTemp.push(data);
+      if (products) {
+        for await (const product of products) {
+          const data = await getComponentByIdAndSelectedApi(
+            product[0],
+            product[1]
+          );
+          data.quantity = product[2];
+          console.log(data);
+          productsTemp.push(data);
+        }
+        setProductsData(productsTemp);
       }
-      setProductsData(productsTemp);
     })();
     setReloadCart(false);
   }, [reloadCart]);
