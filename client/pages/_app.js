@@ -15,6 +15,7 @@ import {
   getProductsCart,
   addProductCart,
   countProductsCart,
+  deleteProductCart,
 } from "../api/cart";
 export default function MyApp({ Component, pageProps }) {
   const [auth, setAuth] = useState(undefined);
@@ -76,12 +77,17 @@ export default function MyApp({ Component, pageProps }) {
       toast.warning("Para comprar un producto hay que registrarse");
     }
   };
+
+  const removeProduct = (product) => {
+    deleteProductCart(product);
+    setReloadCart(true);
+  };
   const cartData = useMemo(
     () => ({
       productsCart: totalProductCart,
       addProductCart: (product) => addProduct(product),
       getProductsCart: getProductsCart,
-      removeProductCart: () => null,
+      removeProductCart: (product) => removeProduct(product),
       removeAllProductsCArt: () => null,
     }),
     [totalProductCart]

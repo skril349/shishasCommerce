@@ -102,3 +102,25 @@ export function countProductsCart() {
     return val;
   }
 }
+
+export function deleteProductCart(productId) {
+  const cart = JSON.parse(getProductsCart());
+  const index = findIndex(cart, productId);
+  var product = cart[index];
+  console.log("product", product);
+
+  if (product[2] > 1) {
+    product.splice(2, 1, product[2] - 1);
+    cart.splice(index, 1, product);
+    console.log("cart", cart);
+  } else {
+    cart.splice(index, 1);
+    console.log("cart", cart);
+  }
+
+  if (size(cart) > 0) {
+    localStorage.setItem(CART, JSON.stringify(cart));
+  } else {
+    localStorage.removeItem(CART);
+  }
+}

@@ -30,6 +30,11 @@ export default function SummaryCart(props) {
     return Number(discountPrice);
   }
 
+  const removeProduct = (product) => {
+    removeProductCart(product);
+    setReloadCart(true);
+  };
+
   console.log("turboProops", products);
   return (
     <div className="summary-cart">
@@ -51,7 +56,7 @@ export default function SummaryCart(props) {
                   <Icon
                     name="close"
                     link
-                    onClick={() => console.log("borrar producto")}
+                    onClick={() => removeProduct(product.id)}
                   />
                   <Image
                     src={`${BASE_PATH}${product.front_image[0].url}`}

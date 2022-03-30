@@ -3,10 +3,13 @@ import Layout from "../../../layout/Layout";
 import useCart from "../../../hooks/useCart";
 import { getComponentByIdAndSelectedApi } from "../../../api/shisha";
 import SummaryCart from "./SummaryCart/SummaryCart";
+
 export default function Cart() {
   const { getProductsCart } = useCart();
   const products = JSON.parse(getProductsCart());
   const [productsData, setProductsData] = useState(null);
+  const [reloadCart, setReloadCart] = useState(false);
+
   console.log(productsData);
   useEffect(() => {
     (async () => {
@@ -22,9 +25,14 @@ export default function Cart() {
       }
       setProductsData(productsTemp);
     })();
-  }, []);
+    setReloadCart(false);
+  }, [reloadCart]);
 
-  return products ? <FullCart products={productsData} /> : <EmptyCart />;
+  return products ? (
+    <FullCart products={productsData} setReloadCart={setReloadCart} />
+  ) : (
+    <EmptyCart />
+  );
 }
 
 function EmptyCart() {
@@ -40,12 +48,12 @@ function EmptyCart() {
 }
 
 function FullCart(props) {
-  const { products } = props;
+  const { products, setReloadCart } = props;
   return (
     <Layout>
       <div className="cart">
         <div className="full-cart">
-          <SummaryCart products={products} />
+          <SummaryCart products={products} setReloadCart={setReloadCart} />
         </div>
       </div>
     </Layout>
