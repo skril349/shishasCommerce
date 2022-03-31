@@ -1,2 +1,30 @@
 .basic-modal {
+  background-color: transparent !important;
+
+  .header {
+    background-color: $primary !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+
+    span,
+    i {
+      color: $font-light;
+    }
+
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 25px;
+      margin: 0;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .content {
+    margin-top: 60px;
+  }
 }

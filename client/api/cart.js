@@ -108,6 +108,9 @@ export function deleteProductCart(productId) {
   const index = findIndex(cart, productId);
   var product = cart[index];
   console.log("product", product);
+  if (!cart) {
+    return null;
+  }
 
   if (product[2] > 1) {
     product.splice(2, 1, product[2] - 1);

@@ -3,12 +3,16 @@ import Layout from "../../../layout/Layout";
 import ChangeNameForm from "../../Account/ChangeNameForm";
 import ChangeEmailForm from "../../Account/ChangeEmailForm/ChangeEmailForm";
 import ChangePasswordForm from "../../Account/ChangePasswordForm";
+import { Icon } from "semantic-ui-react";
+import BasicModal from "../../Modal/BasicModal";
+import AddressForm from "../../Account/AddressForm/AddressForm";
 export default function EditMe(props) {
   const { user, setReloadUser } = props;
   return (
     <Layout>
       <div fluid className="edit-me">
         <Configuration user={user} setReloadUser={setReloadUser} />
+        <Addresses />
       </div>
     </Layout>
   );
@@ -25,6 +29,33 @@ function Configuration(props) {
         <ChangeEmailForm user={user} setReloadUser={setReloadUser} />
         <ChangePasswordForm user={user} setReloadUser={setReloadUser} />
       </div>
+    </div>
+  );
+}
+
+function Addresses() {
+  const [showModal, setShowModal] = useState(false);
+  const [titleModal, setTitleModal] = useState("");
+  const [formModal, setFormModal] = useState(null);
+
+  const openModal = (title) => {
+    setTitleModal(title);
+    setFormModal(<AddressForm />);
+    setShowModal(true);
+  };
+
+  return (
+    <div className="edit-me__addresses">
+      <div className="title">
+        Direcciones
+        <Icon name="plus" link onClick={() => openModal("Nueva Dirección")} />
+      </div>
+      <div className="data">
+        <p>lista de direcciones</p>
+      </div>
+      <BasicModal show={showModal} setShow={setShowModal} title={titleModal}>
+        {formModal}
+      </BasicModal>
     </div>
   );
 }

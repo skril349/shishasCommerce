@@ -31,8 +31,10 @@ export default function SummaryCart(props) {
   }
 
   const removeProduct = (product) => {
-    removeProductCart(product);
-    setReloadCart(true);
+    if (product) {
+      removeProductCart(product);
+      setReloadCart(true);
+    }
   };
 
   console.log("turboProops", products);
