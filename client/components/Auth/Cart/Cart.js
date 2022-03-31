@@ -3,7 +3,7 @@ import Layout from "../../../layout/Layout";
 import useCart from "../../../hooks/useCart";
 import { getComponentByIdAndSelectedApi } from "../../../api/shisha";
 import SummaryCart from "./SummaryCart/SummaryCart";
-
+import AddressShipping from "./AddressShipping/AddressShipping";
 export default function Cart() {
   const { getProductsCart } = useCart();
   const products = JSON.parse(getProductsCart());
@@ -59,6 +59,7 @@ function FullCart(props) {
     <div className="cart">
       <div className="full-cart">
         <SummaryCart products={products} setReloadCart={setReloadCart} />
+        <AddressShipping />
       </div>
     </div>
   );
