@@ -4,6 +4,8 @@ import useCart from "../../../hooks/useCart";
 import { getComponentByIdAndSelectedApi } from "../../../api/shisha";
 import SummaryCart from "./SummaryCart/SummaryCart";
 import AddressShipping from "./AddressShipping/AddressShipping";
+import Payment from "./Payment";
+
 export default function Cart() {
   const { getProductsCart } = useCart();
   const products = JSON.parse(getProductsCart());
@@ -61,6 +63,13 @@ function FullCart(props) {
       <div className="full-cart">
         <SummaryCart products={products} setReloadCart={setReloadCart} />
         <AddressShipping setAddress={setAddress} />
+        {address && (
+          <Payment
+            products={products}
+            address={address}
+            setReloadCart={setReloadCart}
+          />
+        )}
       </div>
     </div>
   );

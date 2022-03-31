@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "orders",
   "info": {
-    "name": "order"
+    "name": "order",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -26,6 +27,10 @@
     "addressShipping": {
       "type": "json",
       "required": true
+    },
+    "quantity": {
+      "required": true,
+      "type": "integer"
     }
   }
 }
