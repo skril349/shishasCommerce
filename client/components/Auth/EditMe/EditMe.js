@@ -37,10 +37,13 @@ function Addresses() {
   const [showModal, setShowModal] = useState(false);
   const [titleModal, setTitleModal] = useState("");
   const [formModal, setFormModal] = useState(null);
+  const [newAddress, setNewAddress] = useState(true);
 
   const openModal = (title) => {
     setTitleModal(title);
-    setFormModal(<AddressForm />);
+    setFormModal(
+      <AddressForm newAddress={newAddress} setShow={setShowModal} />
+    );
     setShowModal(true);
   };
 
