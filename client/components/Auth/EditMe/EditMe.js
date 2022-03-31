@@ -6,6 +6,8 @@ import ChangePasswordForm from "../../Account/ChangePasswordForm";
 import { Icon } from "semantic-ui-react";
 import BasicModal from "../../Modal/BasicModal";
 import AddressForm from "../../Account/AddressForm/AddressForm";
+import ListAddress from "../../Account/ListAddress/ListAddress";
+
 export default function EditMe(props) {
   const { user, setReloadUser } = props;
   return (
@@ -38,11 +40,17 @@ function Addresses() {
   const [titleModal, setTitleModal] = useState("");
   const [formModal, setFormModal] = useState(null);
   const [newAddress, setNewAddress] = useState(true);
+  const [reloadAddresses, setReloadAddresses] = useState(false);
 
-  const openModal = (title) => {
+  const openModal = (title, address) => {
     setTitleModal(title);
     setFormModal(
-      <AddressForm newAddress={newAddress} setShow={setShowModal} />
+      <AddressForm
+        newAddress={address ? false : true}
+        setShowModal={setShowModal}
+        setReloadAddresses={setReloadAddresses}
+        address={address || null}
+      />
     );
     setShowModal(true);
   };
@@ -54,7 +62,11 @@ function Addresses() {
         <Icon name="plus" link onClick={() => openModal("Nueva Dirección")} />
       </div>
       <div className="data">
-        <p>lista de direcciones</p>
+        <ListAddress
+          openModal={openModal}
+          setReloadAddresses={setReloadAddresses}
+          reloadAddresses={reloadAddresses}
+        />
       </div>
       <BasicModal show={showModal} setShow={setShowModal} title={titleModal}>
         {formModal}

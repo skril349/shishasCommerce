@@ -25,25 +25,25 @@ export default function AddressForm(props) {
     },
   });
 
-  //   const updateAddress = async (formData) => {
-  //     setLoading(true);
-  //     // setReloadAddresses(false);
-  //     const response = await updateAddressApi(address.id, formData, logout);
-  //     if (!response) {
-  //       toast.warning("error al actualizar la direccion");
-  //       setLoading(false);
-  //     } else {
-  //       formik.resetForm();
-  //       toast.success("dirección actualizada correctamente");
-  //       //   setReloadAddresses(true);
-  //       setLoading(false);
-  //       setShowModal(false);
-  //     }
-  //   };
+  const updateAddress = async (formData) => {
+    setLoading(true);
+    setReloadAddresses(false);
+    const response = await updateAddressApi(address.id, formData, logout);
+    if (!response) {
+      toast.warning("error al actualizar la direccion");
+      setLoading(false);
+    } else {
+      formik.resetForm();
+      toast.success("dirección actualizada correctamente");
+      setReloadAddresses(true);
+      setLoading(false);
+      setShowModal(false);
+    }
+  };
 
   const createAddress = async (formData) => {
     setLoading(true);
-    // setReloadAddresses(false);
+    setReloadAddresses(false);
     const formDataTemp = {
       ...formData,
       user: auth.idUser,
@@ -51,12 +51,10 @@ export default function AddressForm(props) {
     const response = await createAddressApi(formDataTemp, logout);
     console.log(response);
     if (!response) {
-      toast.warning("error al crear la direccion");
       setLoading(false);
     } else {
       formik.resetForm();
-      toast.success("dirección creada correctamente");
-      //   setReloadAddresses(true);
+      setReloadAddresses(true);
       setLoading(false);
       setShowModal(false);
     }
