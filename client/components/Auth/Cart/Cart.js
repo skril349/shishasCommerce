@@ -55,11 +55,12 @@ function EmptyCart() {
 
 function FullCart(props) {
   const { products, setReloadCart } = props;
+  const [ddress, setAddress] = useState(null);
   return (
     <div className="cart">
       <div className="full-cart">
         <SummaryCart products={products} setReloadCart={setReloadCart} />
-        <AddressShipping />
+        <AddressShipping setAddress={setAddress} />
       </div>
     </div>
   );
