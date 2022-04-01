@@ -45,13 +45,11 @@ export default function Cart() {
 
 function EmptyCart() {
   return (
-    <Layout>
-      <div className="cart">
-        <div className="empty-cart">
-          <h1>NO HAY COSAS EN EL CARRITO</h1>
-        </div>
+    <div className="cart">
+      <div className="empty-cart">
+        <h1>NO HAY COSAS EN EL CARRITO</h1>
       </div>
-    </Layout>
+    </div>
   );
 }
 
