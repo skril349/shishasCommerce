@@ -17,7 +17,7 @@ export default function Home() {
         }}
       >
         Info
-       {/*} <div style={{ height: "100vh", width: "100vw" }}>
+        {/*} <div style={{ height: "100vh", width: "100vw" }}>
       <Home />
       </div>*/}
       </div>
@@ -29,7 +29,9 @@ export default function Home() {
         }}
       >
         HEY
-        <Footer3/>
+      </div>
+      <div>
+        <Footer3 />
       </div>
     </BasicLayout>
   );
