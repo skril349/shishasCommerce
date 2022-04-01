@@ -26,39 +26,37 @@ export default function LoginForm() {
     },
   });
   return (
-    <Layout>
-      <div className="login-form-div">
-        <div className="login-form-space">
-          <Form className="login-form" onSubmit={formik.handleSubmit}>
-            <Form.Input
-              name="identifier"
-              type="text"
-              placeholder="email"
-              onChange={formik.handleChange}
-              error={formik.errors.identifier}
-            />
-            <Form.Input
-              name="password"
-              type="password"
-              placeholder="contraseña"
-              onChange={formik.handleChange}
-              error={formik.errors.password}
-            />
-            <Button
-              loading={loading}
-              type="submit"
-              className="login-form__button"
-              //   onClick={login}
-            >
-              Login
-            </Button>
-            <Link href="/register">
-              <a>Register</a>
-            </Link>
-          </Form>
-        </div>
+    <div className="login-form-div">
+      <div className="login-form-space">
+        <Form className="login-form" onSubmit={formik.handleSubmit}>
+          <Form.Input
+            name="identifier"
+            type="text"
+            placeholder="email"
+            onChange={formik.handleChange}
+            error={formik.errors.identifier}
+          />
+          <Form.Input
+            name="password"
+            type="password"
+            placeholder="contraseña"
+            onChange={formik.handleChange}
+            error={formik.errors.password}
+          />
+          <Button
+            loading={loading}
+            type="submit"
+            className="login-form__button"
+            //   onClick={login}
+          >
+            Login
+          </Button>
+          <Link href="/register">
+            <a>Register</a>
+          </Link>
+        </Form>
       </div>
-    </Layout>
+    </div>
   );
 }
 
