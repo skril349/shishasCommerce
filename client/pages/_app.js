@@ -88,13 +88,14 @@ export default function MyApp({ Component, pageProps }) {
     removeAllProductsCart();
     setReloadCart(true);
   };
+
   const cartData = useMemo(
     () => ({
       productsCart: totalProductCart,
       addProductCart: (product) => addProduct(product),
       getProductsCart: getProductsCart,
       removeProductCart: (product) => removeProduct(product),
-      removeAllProductsCArt: () => removeAllProducts(),
+      removeAllProductsCart: () => removeAllProducts(),
     }),
     [totalProductCart]
   );
