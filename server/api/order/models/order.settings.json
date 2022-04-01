@@ -31,6 +31,10 @@
     "quantity": {
       "required": true,
       "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "required": true
     }
   }
 }

@@ -39,7 +39,7 @@ export default function FormPayment(props) {
       console.log(response);
       if (size(response) > 0) {
         console.log("pedido completado");
-        // removeAllProductsCart();
+        removeAllProductsCart();
         setReloadCart(true);
         router.push("/");
       } else {

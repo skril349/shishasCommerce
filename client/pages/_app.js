@@ -16,6 +16,7 @@ import {
   addProductCart,
   countProductsCart,
   deleteProductCart,
+  removeAllProductsCart,
 } from "../api/cart";
 export default function MyApp({ Component, pageProps }) {
   const [auth, setAuth] = useState(undefined);
@@ -82,13 +83,18 @@ export default function MyApp({ Component, pageProps }) {
     deleteProductCart(product);
     setReloadCart(true);
   };
+
+  const removeAllProducts = () => {
+    removeAllProductsCart();
+    setReloadCart(true);
+  };
   const cartData = useMemo(
     () => ({
       productsCart: totalProductCart,
       addProductCart: (product) => addProduct(product),
       getProductsCart: getProductsCart,
       removeProductCart: (product) => removeProduct(product),
-      removeAllProductsCArt: () => null,
+      removeAllProductsCArt: () => removeAllProducts(),
     }),
     [totalProductCart]
   );
