@@ -7,10 +7,9 @@ export default function ShishaInfo(props) {
   const { addProductCart, getProductsCart } = useCart();
   console.log("SHISHA INFO", shisha[selected]);
   console.log("HEHEHEHEHEEH", shisha, selected, selectCarrousel);
-  if (!shisha) return null;
-  if (!selected) return null;
+  if (!shisha || shisha === undefined) return null;
+  if (!selected || selected === undefined) return null;
   if (selectCarrousel === undefined) return null;
-
   return (
     <div className="shisha-info">
       <div>
