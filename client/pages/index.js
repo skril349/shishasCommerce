@@ -4,6 +4,7 @@ import shisha from "../shisha.png";
 import BasicLayout from "../layout/BasicLayout/BasicLayout";
 //import HomeCom from "../components/Menu/HomeCom";
 import Footer3 from "../components/footer"; //per probarlo
+import HomeCom from "../components/Menu/HomeCom/HomeCom";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         }}
       >
         HEY
+        <HomeCom />
       </div>
       <div>
         <Footer3 />

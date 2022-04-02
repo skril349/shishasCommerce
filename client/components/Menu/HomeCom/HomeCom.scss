@@ -1,5 +1,89 @@
-.home {
+/* .home {
   background-color: hsl(0, 0%, 0%);
   height: 100vh;
   color: red; //color de lletra provisional
+} */
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+
+
+/*probar amb inline block!!!*/
+
+
+
+*  {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2{
+    font-family: 'Alumni Sans Inline One', cursive;
+    font-size: 50px;
+    font-weight: 900;
+}
+h1{
+    padding: 50px 0;
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+}
+h2{
+    font-size: 15px;
+    font-size: 1.5rem;    
+    line-height: 1.333333334;
+    margin-bottom: 20px;
+    /**/margin-top: 40px;/**/
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+p {
+    font-size: 15px;
+    font-size: 1.5rem;    
+    line-height: 1.333333334;
+    margin-bottom: 20px;
+    margin-bottom: 2rem;
+    text-align: justify;
+    /**/font-family: 'Noto Serif', serif;
+    font-size: 30px;
+    /* text-align: center; *//**/
+}
+
+.two-columns {
+    
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    
+    -webkit-column-gap: 20px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 20px; /* Firefox */
+    column-gap: 20px;
+    
+    -webkit-column-gap: 0.5rem; /* Chrome, Safari, Opera */
+    -moz-column-gap: 0.5rem; /* Firefox */
+    column-gap: 0.5rem;
+    
+    -webkit-column-rule: 5px solid rgb(75, 180, 149)  ; /* Chrome, Safari, Opera */
+    -moz-column-rule: 5px solid rgb(75, 180, 149)  ; /* Firefox */
+    column-rule: 5px solid rgb(75, 180, 149)  ;
+    
+    -webkit-column-rule: 0.5rem solid rgb(75, 180, 149)  ; /* Chrome, Safari, Opera */
+    -moz-column-rule: 0.5rem solid rgb(75, 180, 149)  ; /* Firefox */
+    column-rule: 0.5rem solid rgb(75, 180, 149)  ;
+    
+    margin: 20px;
+    margin: 2rem;
+    
+}
+
+@keyframes animacion{
+    0%{
+        transform: translateY(100%);
+        color: transparent;
+        
+    }
+    100%{
+        transform: translate(0%);
+        
+    }
 }
