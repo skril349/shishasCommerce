@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image } from "semantic-ui-react";
 import Slider from "react-slick";
 import { map } from "lodash";
@@ -6,6 +6,7 @@ import { BASE_PATH } from "../../../utils/constants";
 
 export default function CarrouselShisha(props) {
   const { shisha, selected, setSelectCarrousel } = props;
+  const [over, setOver] = useState(false);
   const settings = {
     className: "carrousel-shisha",
     dots: false,
@@ -23,12 +24,21 @@ export default function CarrouselShisha(props) {
         width: "70%",
         position: "relative",
       }}
+      onMouseOver={() => setOver(true)}
+      onMouseOut={() => setOver(false)}
     >
       <Slider {...settings} className="carrousel-shisha">
         {map(shisha[selected], (item) => (
           <Image
             key={item._id}
-            src={`${BASE_PATH}${item.front_image[0].url}`}
+            // src={`${BASE_PATH}${item.front_image[0].url}`}
+            src={
+              item.lateral_image
+                ? over
+                  ? `${BASE_PATH}${item.lateral_image[0].url}`
+                  : `${BASE_PATH}${item.front_image[0].url}`
+                : `${BASE_PATH}${item.front_image[0].url}`
+            }
             alt={item.name}
             fluid
           />
