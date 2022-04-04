@@ -24,12 +24,12 @@ export default function CarrouselShisha(props) {
         width: "70%",
         position: "relative",
       }}
-      onMouseOver={() => setOver(true)}
-      onMouseOut={() => setOver(false)}
     >
       <Slider {...settings} className="carrousel-shisha">
         {map(shisha[selected], (item) => (
           <Image
+            onMouseOver={() => setOver(true)}
+            onMouseOut={() => setOver(false)}
             key={item._id}
             // src={`${BASE_PATH}${item.front_image[0].url}`}
             src={
