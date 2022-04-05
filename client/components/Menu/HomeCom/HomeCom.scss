@@ -44,6 +44,7 @@ margin: auto;
     margin: auto;
     text-align: center;
     /* padding: 1.5rem 5rem; */
+    padding-bottom: 10rem;
 
 }
 .subtituloHomeDark{
@@ -52,8 +53,7 @@ margin: auto;
     margin: auto;
     text-align: justify;
     color:white;
-    /* padding-bottom: 10rem; */
-
+    padding-bottom: 10rem;
     
 }
 .parrafoHomeLight{
@@ -62,7 +62,7 @@ margin: auto;
     margin: auto;
     text-align: justify;
     font-family: 'Noto Serif', serif;
-    /* padding: 0.3rem 0rem 3rem 2rem; */
+    padding: 0.3rem 0rem 3rem 2rem;
     
 }
 .parrafoHomeDark{
@@ -71,7 +71,7 @@ margin: auto;
     margin: auto;
     text-align: justify;
     font-family: 'Noto Serif', serif;
-    /* padding: 0.3rem 0rem 3rem 2rem; */
+    padding: 0.3rem 0rem 3rem 2rem;
     color:white;
 }
 .two-columns-light {
@@ -115,23 +115,23 @@ margin: auto;
 
  @keyframes animacion{
     0%{
-        transform: translateY(100%);
+        transform: translateY(70%);
         color: transparent;
         
     }
     100%{
-        transform: translate(0%);
+        /* transform: translate(0%); */
         
     }
 }
 @keyframes animaciontitulo{
     0%{
-        transform: translateX(100%);
+        transform: translateX(70%);
         color: transparent;
         
     }
     100%{
-        transform: translate(0%);
+        /* transform: translate(0%); */
         
     }
 } 

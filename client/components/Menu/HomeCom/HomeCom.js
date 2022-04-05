@@ -23,7 +23,7 @@ export default function HomeCom() {
     console.log(posicionObj4);
     console.log(posicionObj5);
     console.log(posicionObj6);
-    let tamañoDePantalla = window.innerHeight/2;
+    let tamañoDePantalla = window.innerHeight/3;
     /* this.alert(window.innerHeight); */
   
     if(posicionObj1 > tamañoDePantalla){
@@ -33,7 +33,7 @@ export default function HomeCom() {
         animacion2.style.animation = 'animacion 4s ease-out'/* ease out?? */
     }
     if(posicionObj3 >  window.innerHeight/3){
-      animacion3.style.animation = 'animacion 2s ease-out'
+      animacion3.style.animation = 'animaciontitulo 2s ease-out'
   }
    if(posicionObj4 >  window.innerHeight/3){
     animacion4.style.animation = 'animacion 2s ease-out'
