@@ -1,82 +1,119 @@
-/* .home {
-  background-color: hsl(0, 0%, 0%);
-  height: 100vh;
-  color: red; //color de lletra provisional
-} */
+/*per les clases seria millor usar &__light i &__dark???*/
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
 
-
-/*probar amb inline block!!!*/
-
-
-
-*  {
+/* *{
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+} */
+.lightHome{
+/**/
+background-color: white;
+color: black;
+/* margin: auto; */
+/* padding: 5rem; */
+/**/
 }
-
-h1, h2{
+.homeDark{
+ /**/
+ background-color: black;
+ color: white;
+ padding: 5rem;
+margin: auto;
+ /**/
+}
+.tituloHomeLight{
+    font-family: 'Alumni Sans Inline One', cursive;
+    font-size: 50px;
+    margin: auto;
+    padding: 0.2rem;
+    /* font-weight: 900; */
+}
+.tituloHomeDark{
     font-family: 'Alumni Sans Inline One', cursive;
     font-size: 50px;
     font-weight: 900;
-}
-h1{
-    padding: 50px 0;
-    text-align: center;
-    width: 200px;
-    margin: 0 auto;
-}
-h2{
-    font-size: 15px;
-    font-size: 1.5rem;    
-    line-height: 1.333333334;
-    margin-bottom: 20px;
-    /**/margin-top: 40px;/**/
-    margin-bottom: 2rem;
-    text-align: justify;
-}
-p {
-    font-size: 15px;
-    font-size: 1.5rem;    
-    line-height: 1.333333334;
-    margin-bottom: 20px;
-    margin-bottom: 2rem;
-    text-align: justify;
-    /**/font-family: 'Noto Serif', serif;
-    font-size: 30px;
-    /* text-align: center; *//**/
+    padding: 0.2rem;
+    color: white;
+   
+
 }
 
-.two-columns {
+.subtituloHomeLight{
+    font-family: 'Alumni Sans Inline One', cursive;
+    font-size: 35px;
+    margin: auto;
+    text-align: center;
+    /* padding: 1.5rem 5rem; */
+
+}
+.subtituloHomeDark{
+    font-family: 'Alumni Sans Inline One', cursive;
+    font-size: 35px;
+    margin: auto;
+    text-align: justify;
+    color:white;
+    /* padding-bottom: 10rem; */
+
+    
+}
+.parrafoHomeLight{
+    font-size: 1.5rem;    
+    line-height:1.7; 
+    margin: auto;
+    text-align: justify;
+    font-family: 'Noto Serif', serif;
+    /* padding: 0.3rem 0rem 3rem 2rem; */
+    
+}
+.parrafoHomeDark{
+    font-size: 1.5rem;    
+    line-height:1.7; 
+    margin: auto;
+    text-align: justify;
+    font-family: 'Noto Serif', serif;
+    /* padding: 0.3rem 0rem 3rem 2rem; */
+    color:white;
+}
+.two-columns-light {
     
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
     column-count: 2;
+       
+    -webkit-column-gap: 2rem; /* Chrome, Safari, Opera */
+    -moz-column-gap: 2rem; /* Firefox */
+    column-gap: 2rem;
     
-    -webkit-column-gap: 20px; /* Chrome, Safari, Opera */
-    -moz-column-gap: 20px; /* Firefox */
-    column-gap: 20px;
+    /**/
+    -webkit-column-rule: 0.2rem solid black  ; /* Chrome, Safari, Opera */
+    -moz-column-rule: 0.2rem solid black  ; /* Firefox */
+    column-rule: 0.2rem solid black  ;
+   /**/
+
+    margin: 2rem;
     
-    -webkit-column-gap: 0.5rem; /* Chrome, Safari, Opera */
-    -moz-column-gap: 0.5rem; /* Firefox */
-    column-gap: 0.5rem;
+}
+.two-columns-dark {
     
-    -webkit-column-rule: 5px solid rgb(75, 180, 149)  ; /* Chrome, Safari, Opera */
-    -moz-column-rule: 5px solid rgb(75, 180, 149)  ; /* Firefox */
-    column-rule: 5px solid rgb(75, 180, 149)  ;
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+       
+    -webkit-column-gap: 2rem; /* Chrome, Safari, Opera */
+    -moz-column-gap: 2rem; /* Firefox */
+    column-gap: 2rem;
     
-    -webkit-column-rule: 0.5rem solid rgb(75, 180, 149)  ; /* Chrome, Safari, Opera */
-    -moz-column-rule: 0.5rem solid rgb(75, 180, 149)  ; /* Firefox */
-    column-rule: 0.5rem solid rgb(75, 180, 149)  ;
-    
-    margin: 20px;
+    /**/
+    -webkit-column-rule: 0.2rem solid white  ; /* Chrome, Safari, Opera */
+    -moz-column-rule: 0.2rem solid white ; /* Firefox */
+    column-rule: 0.2rem solid white  ;
+   /**/
+
     margin: 2rem;
     
 }
 
-@keyframes animacion{
+ @keyframes animacion{
     0%{
         transform: translateY(100%);
         color: transparent;
@@ -87,3 +124,15 @@ p {
         
     }
 }
+@keyframes animaciontitulo{
+    0%{
+        transform: translateX(100%);
+        color: transparent;
+        
+    }
+    100%{
+        transform: translate(0%);
+        
+    }
+} 
+
