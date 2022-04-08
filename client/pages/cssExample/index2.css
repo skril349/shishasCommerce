@@ -1,17 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 .parent {
   height: 100vh;
-  width: 100vw;
   display: grid;
-  grid-gap: 30px 15px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 30px;
+  grid-template-columns:
+    [sidebar-start] 1fr
+    [contenido-start] 2fr;
+  grid-template-rows:
+    [headerClass-start] 1fr
+    [contenido-start] 2fr
+    [footPage-start] 1fr;
   /* grid-template-columns: 1fr 2fr 1fr; */
-  grid-auto-rows: 1fr;
 }
-
-.divisor {
+.parent > * {
+  font-family: sans-serif;
+  background-color: goldenrod;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: aquamarine;
+}
+
+.headerClass {
+  grid-column: sidebar-start / -1;
+}
+
+.contenido {
+  grid-column: contenido-start;
+}
+
+.sidebar {
+  grid-row: contenido-start/-1;
+}
+
+.footPage {
+  grid-column: contenido-start;
 }
