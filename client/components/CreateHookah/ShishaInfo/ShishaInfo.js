@@ -14,23 +14,23 @@ export default function ShishaInfo(props) {
     <div className="shisha-info">
       <div>
         <h1>
-          {shisha[selected][selectCarrousel].name
-            ? shisha[selected][selectCarrousel].name
+          {shisha[selected][selectCarrousel]?.name
+            ? shisha[selected][selectCarrousel]?.name
             : ""}
         </h1>
       </div>
       <div>
         <p>
-          {shisha[selected][selectCarrousel].info
-            ? shisha[selected][selectCarrousel].info
+          {shisha[selected][selectCarrousel]?.info
+            ? shisha[selected][selectCarrousel]?.info
             : ""}
         </p>
       </div>
       <div>
         <p>
           Precio:
-          {shisha[selected][selectCarrousel].price
-            ? shisha[selected][selectCarrousel].price
+          {shisha[selected][selectCarrousel]?.price
+            ? shisha[selected][selectCarrousel]?.price
             : ""}
           €
         </p>
