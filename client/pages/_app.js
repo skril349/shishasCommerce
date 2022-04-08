@@ -1,4 +1,5 @@
 import "../scss/global.scss";
+import "./cssExample/index2.css";
 import "semantic-ui-css/semantic.min.css";
 import { useAmp } from "next/amp";
 import { useRouter } from "next/router";

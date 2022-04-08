@@ -1,0 +1,28 @@
+.parent {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto auto;
+  /* grid-template-columns: 1fr 2fr 1fr; */
+}
+
+.divisor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+}
+
+div:nth-child(10) {
+  background-color: red;
+
+  grid-column: 3/-1;
+}
+
+div:nth-child(6) {
+  background-color: pink;
+  grid-column: 2/3;
+  grid-row: 2/-1;
+}
