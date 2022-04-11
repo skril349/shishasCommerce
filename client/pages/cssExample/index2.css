@@ -8,11 +8,13 @@
   grid-gap: 30px;
   grid-template-columns:
     [sidebar-start] 1fr
-    [contenido-start] 2fr;
+    [sidebar-end contenido-start] 2fr
+    [contenido-end];
   grid-template-rows:
-    [headerClass-start] 1fr
-    [contenido-start] 2fr
-    [footPage-start] 1fr;
+    [headerClass-start ] 1fr
+    [ headerClass-end contenido-start] 5fr
+    [contenido-end footPage-start] 1fr
+    [footPage-end];
   /* grid-template-columns: 1fr 2fr 1fr; */
 }
 .parent > * {
@@ -24,7 +26,7 @@
 }
 
 .headerClass {
-  grid-column: sidebar-start / -1;
+  grid-column: sidebar-start / contenido-end;
 }
 
 .contenido {
@@ -32,9 +34,9 @@
 }
 
 .sidebar {
-  grid-row: contenido-start/-1;
+  grid-row: contenido-start/footPage-end;
 }
 
 .footPage {
-  grid-column: contenido-start;
+  grid-column: contenido-start/contenido-end;
 }

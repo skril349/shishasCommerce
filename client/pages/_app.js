@@ -5,6 +5,7 @@ import { useAmp } from "next/amp";
 import { useRouter } from "next/router";
 import "antd/dist/antd.css";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import AuthContext from "../context/AuthContext";
 import React, { useState, useMemo, useEffect } from "react";
 import jwtDecode from "jwt-decode";
