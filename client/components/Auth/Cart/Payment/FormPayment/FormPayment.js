@@ -38,7 +38,7 @@ export default function FormPayment(props) {
       );
       console.log(response);
       if (size(response) > 0) {
-        console.log("pedido completado");
+        toast.success("pedido completado");
         removeAllProductsCart();
         setReloadCart(true);
         router.push("/");
