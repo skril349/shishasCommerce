@@ -39,7 +39,7 @@ export default function HomeCom() {
     animacion4.style.animation = 'animacion 2s ease-out'
 }
 if(posicionObj5 >  window.innerHeight/3){
-  animacion5.style.animation = 'animacion 2s ease-out'
+  animacion5.style.animation = 'animacion 4s ease-out'
 }
 if(posicionObj6 >  window.innerHeight/3){
   animacion6.style.animation = 'animaciontitulo 2s ease-out'
