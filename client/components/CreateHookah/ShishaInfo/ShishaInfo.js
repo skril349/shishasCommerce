@@ -3,8 +3,10 @@ import { Button } from "semantic-ui-react";
 import { getConeApi } from "../../../api/shisha";
 import useCart from "../../../hooks/useCart";
 export default function ShishaInfo(props) {
-  const { shisha, selected, selectCarrousel } = props;
-  const { addProductCart, getProductsCart } = useCart();
+  const { shisha, selected, selectCarrousel, setTotalPrice, totalPrice } =
+    props;
+  const { addProductCart, addProduct, getProducts, getProductsCart } =
+    useCart();
   console.log("SHISHA INFO", shisha[selected]);
   console.log("HEHEHEHEHEEH", shisha, selected, selectCarrousel);
   if (!shisha || shisha === undefined) return null;
@@ -38,11 +40,24 @@ export default function ShishaInfo(props) {
       <div>
         <Button
           onClick={() => {
+            console.log(shisha[selected][selectCarrousel].price);
             console.log(shisha[selected][selectCarrousel].id);
             addProductCart([shisha[selected][selectCarrousel].id, selected, 1]);
+            setTotalPrice(totalPrice + shisha[selected][selectCarrousel].price);
           }}
         >
           Add Cart
+        </Button>
+        <Button
+          onClick={() => {
+            console.log(shisha[selected][selectCarrousel].price);
+            console.log(shisha[selected][selectCarrousel].id);
+            addProduct(shisha[selected][selectCarrousel].price);
+            const Product = getProducts();
+            console.log(Product);
+          }}
+        >
+          Add Product
         </Button>
       </div>
     </div>

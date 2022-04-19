@@ -18,8 +18,16 @@
   .column3 {
     margin-top: 130px;
     padding: 10px;
-    display: flex;
     float: left;
     width: 25%;
+    height: 80%;
+  }
+}
+
+.totalPrice {
+  position: absolute;
+  bottom: 10%;
+  h1 {
+    color: white;
   }
 }

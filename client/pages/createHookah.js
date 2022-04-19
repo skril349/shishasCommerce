@@ -21,6 +21,7 @@ export default function CreateHookah() {
   const [shisha, setShisha] = useState(null);
   const [selected, setSelected] = useState(null);
   const [selectCarrousel, setSelectCarrousel] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
     (async () => {
       const cones = await getConesApi();
@@ -70,11 +71,23 @@ export default function CreateHookah() {
                 shisha={shisha}
                 selected={selected}
                 selectCarrousel={selectCarrousel}
+                setTotalPrice={setTotalPrice}
+                totalPrice={totalPrice}
               />
+              {totalPrice ? <TotalPice totalPrice={totalPrice} /> : null}
             </div>
           ) : null}
         </div>
       )}
     </Layout>
+  );
+}
+
+function TotalPice(props) {
+  const { totalPrice } = props;
+  return (
+    <div className="totalPrice">
+      <h1>PRICE: {totalPrice}</h1>
+    </div>
   );
 }
