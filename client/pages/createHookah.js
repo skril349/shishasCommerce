@@ -87,7 +87,7 @@ function TotalPice(props) {
   const { totalPrice } = props;
   return (
     <div className="totalPrice">
-      <h1>PRICE: {totalPrice}</h1>
+      <h1>PRICE: {totalPrice} €</h1>
     </div>
   );
 }
