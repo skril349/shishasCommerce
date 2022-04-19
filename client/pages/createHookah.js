@@ -121,8 +121,9 @@ export default function CreateHookah() {
               setSelectCarrousel={setSelectCarrousel}
             />
           </div>
-          {selected ? (
-            <div className="column3">
+
+          <div className="column3">
+            {selected ? (
               <ShishaInfo
                 shisha={shisha}
                 selected={selected}
@@ -130,14 +131,14 @@ export default function CreateHookah() {
                 setTotalPrice={setTotalPrice}
                 totalPrice={totalPrice}
               />
-              {totalPrice ? (
-                <TotalPice
-                  totalPrice={totalPrice}
-                  productsForCart={productsForCart}
-                />
-              ) : null}
-            </div>
-          ) : null}
+            ) : null}
+            {totalPrice ? (
+              <TotalPice
+                totalPrice={totalPrice}
+                productsForCart={productsForCart}
+              />
+            ) : null}
+          </div>
         </div>
       )}
     </Layout>
