@@ -12,7 +12,9 @@ export default function SummaryCart(props) {
     forEach(products, (product) => {
       console.log("descuento", product);
       console.log("price", finalPrice);
-      finalPrice += product.discount ? discounting(product) : product.price;
+      finalPrice += product.discount
+        ? discounting(product) * product.quantity
+        : product.price * product.quantity;
     });
     setTotalPrice(finalPrice);
   }, [products, reloadCart]);
