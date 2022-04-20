@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BASE_PATH } from "../../../utils/constants";
 import Layout from "../../../layout/Layout";
-import { getFavoriteApi } from "../../../api/favorites";
+import { getFavoriteApi, removeFavoriteApi } from "../../../api/favorites";
 import { size, forEach, map } from "lodash";
 import { Loader, Grid, Button, Image, GridColumn } from "semantic-ui-react";
 import useAuth from "../../../hooks/useAuth";
@@ -14,13 +14,15 @@ import {
 import useCart from "../../../hooks/useCart";
 export default function Wishlist() {
   const [products, setProducts] = useState(null);
+  const [reloadFavorites, setReloadFavorites] = useState(false);
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
       const response = await getFavoriteApi(auth.idUser, logout);
       setProducts(response);
+      setReloadFavorites(false);
     })();
-  }, []);
+  }, [reloadFavorites]);
   return (
     <Layout>
       <div fluid className="wishlist">
@@ -34,7 +36,10 @@ export default function Wishlist() {
               </div>
             )}
             {products && size(products) > 0 && (
-              <ListProducts products={products} />
+              <ListProducts
+                products={products}
+                setReloadFavorites={setReloadFavorites}
+              />
             )}
           </div>
         </div>
@@ -45,7 +50,8 @@ export default function Wishlist() {
 
 function ListProducts(props) {
   const { width } = useWindowSize();
-  const { products } = props;
+  const { products, setReloadFavorites } = props;
+
   const getColumnsRender = () => {
     switch (true) {
       case width > breakpointUpLg:
@@ -64,7 +70,10 @@ function ListProducts(props) {
       <Grid>
         <Grid.Row columns={getColumnsRender()}>
           {map(products, (product) => (
-            <Product product={product} />
+            <Product
+              product={product}
+              setReloadFavorites={setReloadFavorites}
+            />
           ))}
         </Grid.Row>
       </Grid>
@@ -73,9 +82,18 @@ function ListProducts(props) {
 }
 
 function Product(props) {
-  const { product } = props;
-  const { addProductCart, getProductsCart } = useCart();
-
+  const { product, setReloadFavorites } = props;
+  const { addProductCart } = useCart();
+  const { auth, logout } = useAuth();
+  const removeFavorite = async () => {
+    console.log("quitar de favoritos");
+    console.log(auth);
+    if (auth) {
+      console.log(product);
+      await removeFavoriteApi(auth.idUser, product.idProduct, logout);
+      setReloadFavorites(true);
+    }
+  };
   return (
     <GridColumn className="list-products__product">
       <h2>{product.product.name}</h2>
@@ -102,7 +120,7 @@ function Product(props) {
         >
           ADD CART
         </Button>
-        <Button>REMOVE</Button>
+        <Button onClick={removeFavorite}>REMOVE</Button>
       </div>
     </GridColumn>
   );
