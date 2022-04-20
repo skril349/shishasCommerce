@@ -112,6 +112,7 @@ export default function CreateHookah() {
               shisha={shisha}
               setSelected={setSelected}
               selectCarrousel={selectCarrousel}
+              setSelectCarrousel={setSelectCarrousel}
             />
           </div>
           <div className="column2">

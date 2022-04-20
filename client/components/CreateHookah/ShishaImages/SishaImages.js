@@ -2,7 +2,7 @@ import React from "react";
 import { Image } from "semantic-ui-react";
 import { BASE_PATH } from "../../../utils/constants";
 export default function SishaImages(props) {
-  const { shisha, setSelected, selectCarrousel } = props;
+  const { shisha, setSelected, selectCarrousel, setSelectCarrousel } = props;
   if (!shisha) return null;
 
   return (
@@ -11,42 +11,66 @@ export default function SishaImages(props) {
         <Image
           src={`${BASE_PATH}${shisha.cones[0].front_image[0].url}`}
           fluid={true}
-          onClick={() => setSelected("cones")}
+          onClick={() => {
+            setSelectCarrousel(0);
+
+            setSelected("cones");
+          }}
         />
       </div>
       <div className="shisha-images__plato">
         <Image
           src={`${BASE_PATH}${shisha.plates[0].front_image[0].url}`}
           fluid
-          onClick={() => setSelected("plates")}
+          onClick={() => {
+            setSelectCarrousel(0);
+
+            setSelected("plates");
+          }}
         />
       </div>
       <div className="shisha-images__mastil">
         <Image
           src={`${BASE_PATH}${shisha.masts[0].front_image[0].url}`}
           fluid
-          onClick={() => setSelected("masts")}
+          onClick={() => {
+            setSelectCarrousel(0);
+
+            setSelected("masts");
+          }}
         />
       </div>
       <div className="shisha-images__purga">
         <Image
           src={`${BASE_PATH}${shisha.purges[0].front_image[0].url}`}
           fluid
-          onClick={() => setSelected("purges")}
+          onClick={() => {
+            setSelectCarrousel(0);
+
+            setSelected("purges");
+          }}
         />
       </div>
       <div className="shisha-images__filtro">
         <Image
           src={`${BASE_PATH}${shisha.lowerStems[0].front_image[0].url}`}
           fluid
-          onClick={() => setSelected("lowerStems")}
+          onClick={() => {
+            setSelectCarrousel(0);
+
+            setSelected("lowerStems");
+          }}
         />
       </div>
       <div className="shisha-images__silenciador">
         <Image
           src={`${BASE_PATH}${shisha.diffusers[0].front_image[0].url}`}
           fluid
-          onClick={() => setSelected("diffusers")}
+          onClick={() => {
+            setSelectCarrousel(0);
+
+            setSelected("diffusers");
+          }}
         />
       </div>
     </div>

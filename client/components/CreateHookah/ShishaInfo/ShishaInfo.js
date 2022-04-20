@@ -36,12 +36,20 @@ export default function ShishaInfo(props) {
             : ""}
           €
         </p>
+
+        {shisha[selected][selectCarrousel]?.discount && (
+          <p>
+            Descuento:
+            {shisha[selected][selectCarrousel]?.discount
+              ? shisha[selected][selectCarrousel]?.discount
+              : ""}
+            %
+          </p>
+        )}
       </div>
       <div>
         <Button
           onClick={() => {
-            console.log(shisha[selected][selectCarrousel].price);
-            console.log(shisha[selected][selectCarrousel].id);
             addProductCart([shisha[selected][selectCarrousel].id, selected, 1]);
             setTotalPrice(totalPrice + shisha[selected][selectCarrousel].price);
           }}
