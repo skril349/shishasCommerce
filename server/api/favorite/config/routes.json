@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/favorites/:id",
+      "path": "/favorites/:idProduct",
       "handler": "favorite.findOne",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/favorites/:id",
+      "path": "/favorites/:idProducts",
       "handler": "favorite.delete",
       "config": {
         "policies": []

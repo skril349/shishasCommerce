@@ -26,7 +26,6 @@ export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [totalProductCart, setTotalProductCart] = useState(0);
   const [reloadCart, setReloadCart] = useState(false);
-  console.log(totalProductCart);
   useEffect(() => {
     const token = getToken();
     if (token) {

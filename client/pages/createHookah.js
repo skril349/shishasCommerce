@@ -32,12 +32,10 @@ export default function CreateHookah() {
   const [totalPrice, setTotalPrice] = useState(0);
 
   function discounting(product) {
-    console.log("hey");
     var discountPrice = (
       product.price -
       (product.price * product.discount) / 100
     ).toFixed(2);
-    console.log(Number(discountPrice));
     return Number(discountPrice);
   }
 
@@ -45,7 +43,6 @@ export default function CreateHookah() {
     (async () => {
       const productsTemp = [];
       let finalPrice = 0;
-      console.log("products for cart", productsForCart);
       if (productsForCart) {
         for await (const product of productsForCart) {
           const data = await getComponentByIdAndSelectedApi(
@@ -57,7 +54,6 @@ export default function CreateHookah() {
           finalPrice += data.discount
             ? discounting(data) * data.quantity
             : data.price * data.quantity;
-          console.log("data", finalPrice);
           productsTemp.push(data);
         }
         setTotalPrice(finalPrice);
@@ -67,16 +63,6 @@ export default function CreateHookah() {
     })();
     setReloadCart(false);
   }, [reloadCart]);
-
-  // useEffect(() => {
-  //   let finalPrice = 0;
-  //   forEach(productsForCart, (product) => {
-  //     console.log("descuento", product);
-  //     console.log("price", totalPrice);
-  //     finalPrice += product.discount ? discounting(product) : product.price;
-  //   });
-  //   setTotalPrice(finalPrice);
-  // }, [productsForCart]);
 
   useEffect(() => {
     (async () => {

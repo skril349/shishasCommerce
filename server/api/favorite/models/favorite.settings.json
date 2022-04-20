@@ -16,26 +16,11 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "cone": {
-      "model": "cone"
+    "product": {
+      "type": "json"
     },
-    "decoration_mast": {
-      "model": "decoration-mast"
-    },
-    "diffuser": {
-      "model": "diffuser"
-    },
-    "lower_stem": {
-      "model": "lower-stem"
-    },
-    "mast": {
-      "model": "mast"
-    },
-    "plate": {
-      "model": "plate"
-    },
-    "purge": {
-      "model": "purge"
+    "idProduct": {
+      "type": "string"
     }
   }
 }

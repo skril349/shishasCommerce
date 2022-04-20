@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { getConeApi } from "../../../api/shisha";
 import useCart from "../../../hooks/useCart";
 import {
@@ -9,14 +9,39 @@ import {
   Label,
   Button,
 } from "semantic-ui-react";
+import useAuth from "../../../hooks/useAuth";
+import { isFavoriteApi, addFavoriteApi } from "../../../api/favorites";
 
 export default function ShishaInfo(props) {
   const { shisha, selected, selectCarrousel, setTotalPrice, totalPrice } =
     props;
   const { addProductCart, getProductsCart } = useCart();
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { auth, logout } = useAuth();
 
-  console.log("SHISHA INFO", shisha[selected]);
-  console.log("HEHEHEHEHEEH", shisha, selected, selectCarrousel);
+  useEffect(() => {
+    (async () => {
+      const response = await isFavoriteApi(
+        auth.idUser,
+        shisha[selected][selectCarrousel].id,
+        logout
+      );
+      console.log(response);
+    })();
+  }, []);
+
+  const addFavorite = async () => {
+    console.log(shisha[selected][selectCarrousel].id);
+    if (auth) {
+      await addFavoriteApi(
+        auth.idUser,
+        shisha[selected][selectCarrousel],
+        logout
+      );
+      // setReloadFavorites(true);
+    }
+  };
+
   if (!shisha || shisha === undefined) return null;
   if (!selected || selected === undefined) return null;
   if (selectCarrousel === undefined) return null;
@@ -65,11 +90,7 @@ export default function ShishaInfo(props) {
           Add Cart
         </Button>
 
-        <Icon
-          name="heart outline"
-          color="white"
-          onClick={() => console.log(shisha[selected][selectCarrousel])}
-        />
+        <Icon name="heart outline" color="white" onClick={addFavorite} />
       </div>
     </div>
   );
