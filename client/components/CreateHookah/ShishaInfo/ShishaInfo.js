@@ -11,12 +11,14 @@ import {
 } from "semantic-ui-react";
 import useAuth from "../../../hooks/useAuth";
 import { isFavoriteApi, addFavoriteApi } from "../../../api/favorites";
-
+import { size } from "lodash";
 export default function ShishaInfo(props) {
   const { shisha, selected, selectCarrousel, setTotalPrice, totalPrice } =
     props;
   const { addProductCart, getProductsCart } = useCart();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [reloadFavorites, setReloadFavorites] = useState(false);
+
   const { auth, logout } = useAuth();
 
   useEffect(() => {
@@ -27,8 +29,11 @@ export default function ShishaInfo(props) {
         logout
       );
       console.log(response);
+      if (size(response) > 0) setIsFavorite(true);
+      else setIsFavorite(false);
+      setReloadFavorites(false);
     })();
-  }, [shisha[selected][selectCarrousel].id]);
+  }, [shisha[selected][selectCarrousel].id, reloadFavorites]);
 
   const addFavorite = async () => {
     console.log(shisha[selected][selectCarrousel].id);
@@ -38,7 +43,7 @@ export default function ShishaInfo(props) {
         shisha[selected][selectCarrousel],
         logout
       );
-      // setReloadFavorites(true);
+      setReloadFavorites(true);
     }
   };
 
@@ -90,7 +95,11 @@ export default function ShishaInfo(props) {
           Add Cart
         </Button>
 
-        <Icon name="heart outline" color="white" onClick={addFavorite} />
+        <Icon
+          name={isFavorite ? "heart" : "heart outline"}
+          color="white"
+          onClick={addFavorite}
+        />
       </div>
     </div>
   );
