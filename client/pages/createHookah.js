@@ -30,7 +30,6 @@ export default function CreateHookah() {
   const [selected, setSelected] = useState(null);
   const [selectCarrousel, setSelectCarrousel] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-
   function discounting(product) {
     var discountPrice = (
       product.price -
@@ -43,22 +42,23 @@ export default function CreateHookah() {
     (async () => {
       const productsTemp = [];
       let finalPrice = 0;
+      setTotalPrice(0);
       if (productsForCart) {
         for await (const product of productsForCart) {
           const data = await getComponentByIdAndSelectedApi(
             product[0],
             product[1]
           );
-          finalPrice += data.discount ? discounting(data) : data.price;
           data.quantity = product[2];
+
           finalPrice += data.discount
             ? discounting(data) * data.quantity
             : data.price * data.quantity;
           productsTemp.push(data);
         }
-        setTotalPrice(finalPrice);
-
         setProductsData(productsTemp);
+
+        setTotalPrice(finalPrice);
       }
     })();
     setReloadCart(false);
@@ -119,12 +119,7 @@ export default function CreateHookah() {
                 totalPrice={totalPrice}
               />
             ) : null}
-            {totalPrice ? (
-              <TotalPice
-                totalPrice={totalPrice}
-                productsForCart={productsForCart}
-              />
-            ) : null}
+            {totalPrice ? <TotalPice totalPrice={totalPrice} /> : null}
           </div>
         </div>
       )}
@@ -133,7 +128,7 @@ export default function CreateHookah() {
 }
 
 function TotalPice(props) {
-  const { totalPrice, productsForCart } = props;
+  const { totalPrice } = props;
 
   return (
     <div className="totalPrice">
