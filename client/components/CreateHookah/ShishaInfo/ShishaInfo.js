@@ -28,7 +28,7 @@ export default function ShishaInfo(props) {
       );
       console.log(response);
     })();
-  }, []);
+  }, [shisha[selected][selectCarrousel].id]);
 
   const addFavorite = async () => {
     console.log(shisha[selected][selectCarrousel].id);
