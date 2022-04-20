@@ -11,7 +11,7 @@ import {
   breakpointUpSm,
   breakpointUpLg,
 } from "../../../utils/breakpoint";
-
+import useCart from "../../../hooks/useCart";
 export default function Wishlist() {
   const [products, setProducts] = useState(null);
   const { auth, logout } = useAuth();
@@ -74,6 +74,8 @@ function ListProducts(props) {
 
 function Product(props) {
   const { product } = props;
+  const { addProductCart, getProductsCart } = useCart();
+
   return (
     <GridColumn className="list-products__product">
       <h2>{product.product.name}</h2>
@@ -93,7 +95,13 @@ function Product(props) {
         </div>
       </div>
       <div className="list-products__product-buttons">
-        <Button onClick={() => console.log(product)}>ADD CART</Button>
+        <Button
+          onClick={() =>
+            addProductCart([product.idProduct, product.selected, 1])
+          }
+        >
+          ADD CART
+        </Button>
         <Button>REMOVE</Button>
       </div>
     </GridColumn>
