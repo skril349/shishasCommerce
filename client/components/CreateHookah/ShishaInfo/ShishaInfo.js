@@ -1,7 +1,15 @@
 import React from "react";
-import { Button } from "semantic-ui-react";
 import { getConeApi } from "../../../api/shisha";
 import useCart from "../../../hooks/useCart";
+import {
+  Container,
+  Menu as SemanticMenu,
+  Grid,
+  Icon,
+  Label,
+  Button,
+} from "semantic-ui-react";
+
 export default function ShishaInfo(props) {
   const { shisha, selected, selectCarrousel, setTotalPrice, totalPrice } =
     props;
@@ -56,6 +64,12 @@ export default function ShishaInfo(props) {
         >
           Add Cart
         </Button>
+
+        <Icon
+          name="heart outline"
+          color="white"
+          onClick={() => console.log(shisha[selected][selectCarrousel])}
+        />
       </div>
     </div>
   );
