@@ -10,7 +10,11 @@ import {
   Button,
 } from "semantic-ui-react";
 import useAuth from "../../../hooks/useAuth";
-import { isFavoriteApi, addFavoriteApi } from "../../../api/favorites";
+import {
+  isFavoriteApi,
+  addFavoriteApi,
+  removeFavoriteApi,
+} from "../../../api/favorites";
 import { size } from "lodash";
 export default function ShishaInfo(props) {
   const { shisha, selected, selectCarrousel, setTotalPrice, totalPrice } =
@@ -41,6 +45,18 @@ export default function ShishaInfo(props) {
       await addFavoriteApi(
         auth.idUser,
         shisha[selected][selectCarrousel],
+        logout
+      );
+      setReloadFavorites(true);
+    }
+  };
+
+  const removeFavorite = async () => {
+    console.log("quitar de favoritos");
+    if (auth) {
+      await removeFavoriteApi(
+        auth.idUser,
+        shisha[selected][selectCarrousel].id,
         logout
       );
       setReloadFavorites(true);
@@ -98,7 +114,7 @@ export default function ShishaInfo(props) {
         <Icon
           name={isFavorite ? "heart" : "heart outline"}
           color="white"
-          onClick={addFavorite}
+          onClick={isFavorite ? removeFavorite : addFavorite}
         />
       </div>
     </div>

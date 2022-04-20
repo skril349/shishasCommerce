@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/favorites/:idProducts",
+      "path": "/favorites/:id",
       "handler": "favorite.delete",
       "config": {
         "policies": []
