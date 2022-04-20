@@ -21,6 +21,9 @@
     },
     "idProduct": {
       "type": "string"
+    },
+    "selected": {
+      "type": "string"
     }
   }
 }

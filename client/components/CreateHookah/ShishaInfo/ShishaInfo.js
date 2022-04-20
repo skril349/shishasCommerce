@@ -40,11 +40,12 @@ export default function ShishaInfo(props) {
   }, [shisha[selected][selectCarrousel].id, reloadFavorites]);
 
   const addFavorite = async () => {
-    console.log(shisha[selected][selectCarrousel].id);
+    console.log("selected", selected);
     if (auth) {
       await addFavoriteApi(
         auth.idUser,
         shisha[selected][selectCarrousel],
+        selected,
         logout
       );
       setReloadFavorites(true);

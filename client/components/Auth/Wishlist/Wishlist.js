@@ -93,7 +93,7 @@ function Product(props) {
         </div>
       </div>
       <div className="list-products__product-buttons">
-        <Button>ADD CART</Button>
+        <Button onClick={() => console.log(product)}>ADD CART</Button>
         <Button>REMOVE</Button>
       </div>
     </GridColumn>

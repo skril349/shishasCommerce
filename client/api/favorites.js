@@ -12,7 +12,12 @@ export async function isFavoriteApi(idUser, idProduct, logout) {
   }
 }
 
-export async function addFavoriteApi(idUser, productSelected, logout) {
+export async function addFavoriteApi(
+  idUser,
+  productSelected,
+  selected,
+  logout
+) {
   try {
     // const dataFound = await isFavoriteApi(idUser, productSelected.id, logout);
     // if (size(dataFound) > 0 || !dataFound) {
@@ -28,6 +33,7 @@ export async function addFavoriteApi(idUser, productSelected, logout) {
         user: idUser,
         product: productSelected,
         idProduct: productSelected.id,
+        selected: selected,
       }),
     };
     const result = await authFetch(url, params, logout);
