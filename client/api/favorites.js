@@ -3,7 +3,7 @@ import { authFetch } from "../utils/authFetch";
 
 export async function isFavoriteApi(idUser, idProduct, logout) {
   try {
-    const url = `${BASE_PATH}/favorites/${idProduct}?user=${idUser}`;
+    const url = `${BASE_PATH}/favorites?idProduct=${idProduct}&user=${idUser}`;
     console.log(url);
     return await authFetch(url, null, logout);
   } catch (error) {
