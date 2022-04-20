@@ -63,3 +63,14 @@ export async function removeFavoriteApi(idUser, idProduct, logout) {
     return null;
   }
 }
+
+export async function getFavoriteApi(idUser, logout) {
+  try {
+    const url = `${BASE_PATH}/favorites?user=${idUser}`;
+    const result = await authFetch(url, null, logout);
+    return result;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
