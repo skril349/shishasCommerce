@@ -60,7 +60,7 @@ function Menu(props) {
       </Link>
       {auth ? (
         <>
-          {user !== null && (
+          {user !== null && user !== undefined && (
             <Link href="/editMe">
               <SemanticMenu.Item as="a">
                 {user.name.toUpperCase()} {user.lastname.toUpperCase()}
