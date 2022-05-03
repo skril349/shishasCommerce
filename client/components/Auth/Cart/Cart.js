@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LayoutCart from "../../../layoutCart/LayoutCart";
+import LayoutCart from "../../../layout/LayoutCart";
 import useCart from "../../../hooks/useCart";
 import { getComponentByIdAndSelectedApi } from "../../../api/shisha";
 import SummaryCart from "./SummaryCart/SummaryCart";
