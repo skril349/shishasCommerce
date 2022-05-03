@@ -11,7 +11,7 @@ export default function Layout(props) {
         [className]: className,
       })}
     >
-      <Header newClass="fixedHeader" />
+      <Header className="fixedHeader" />
       <Container fluid className="content">
         {children}
       </Container>
