@@ -32,7 +32,7 @@ export default function AboutUs() {
         <div className="about-us__partners">
           <Grid>
             {map(partners, (partner) => (
-              <Grid.Column key={partner.id} mobile={16} tablet={8} computer={4}>
+              <Grid.Column key={partner.id} mobile={16} tablet={8} computer={5}>
                 <Partners partner={partner} />
               </Grid.Column>
             ))}
