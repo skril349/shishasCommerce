@@ -26,6 +26,8 @@ export default function AboutUs() {
       console.log(partnersApi);
     })();
   }, []);
+  console.log(aboutUsData);
+
   return (
     <Layout>
       <div fluid className="about-us">
@@ -38,8 +40,12 @@ export default function AboutUs() {
             ))}
           </Grid>
         </div>
-        <div className="about-us__mision">mision</div>
-        <div className="about-us__vision">vision</div>
+        <div className="about-us__mision">
+          {aboutUsData ? aboutUsData[0].mision : null}
+        </div>
+        <div className="about-us__vision">
+          {aboutUsData ? aboutUsData[0].vision : null}
+        </div>
       </div>
     </Layout>
   );
