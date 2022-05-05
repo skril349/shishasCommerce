@@ -2,7 +2,26 @@
   background-color: hsl(0, 0%, 0%);
   height: 100vh;
   color: red; //color de lletra provisional
+  &__mision, &__vision,&__partners{
+    height: 100vh;
+  }
+  &__partners{
+    padding-top: 100px;
+  }
   &__partner{
     padding:50px;
+    &__name{
+      color: white;
+    }
+    &__study{
+      color: wheat;
+    }
+  }
+
+  &__mision{
+    background-color: grey;
+  }
+  &__vision{
+    background-color: white;
   }
 }

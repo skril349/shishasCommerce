@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../../layout/Layout";
-import { Button, Grid } from "semantic-ui-react";
-
+import { Button, Grid, Image, Card } from "semantic-ui-react";
+import { BASE_PATH } from "../../../utils/constants";
 import { getAboutUsApi } from "../../../api/aboutUs";
 import { map } from "lodash";
 export default function AboutUs() {
@@ -38,6 +38,8 @@ export default function AboutUs() {
             ))}
           </Grid>
         </div>
+        <div className="about-us__mision">mision</div>
+        <div className="about-us__vision">vision</div>
       </div>
     </Layout>
   );
@@ -49,8 +51,28 @@ function Partners(props) {
   const [loading, setLoading] = useState(false);
   return (
     <div className="about-us__partner">
-      <p>{partner.name}</p>
-      <p>{partner.study}</p>
+      <Card>
+        <Image src={`${BASE_PATH}${partner.image.url}`} wrapped ui={false} />
+        <Card.Content>
+          <div>
+            <h1>{partner.name}</h1>
+          </div>
+          <Card.Meta>
+            <span className="date">CEO</span>
+          </Card.Meta>
+          <Card.Description>{partner.study}</Card.Description>
+        </Card.Content>
+      </Card>
+
+      {/* 
+      <div className="about-us__image">
+        <Image
+          src={`${BASE_PATH}${partner.image.url}`}
+          // fluid={true}
+        />
+      </div>
+      <p className="about-us__partner__name">{partner.name}</p>
+      <p className="about-us__partner__study">{partner.study}</p> */}
     </div>
   );
 }
