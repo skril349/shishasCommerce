@@ -49,7 +49,7 @@ function Menu(props) {
   return (
     <SemanticMenu className="ui secondary menu">
       <Link href="/">
-        <SemanticMenu.Item as="a">HOME</SemanticMenu.Item>
+        <SemanticMenu.Item as="a">HOMEiii</SemanticMenu.Item>
       </Link>
       <Link href="/about">
         <SemanticMenu.Item as="a">ABOUT US</SemanticMenu.Item>

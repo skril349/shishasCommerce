@@ -6,7 +6,7 @@ export default function BasicLayout(props) {
   const { children } = props;
   return (
     <Container fluid className="basic-layout">
-      {/* <Header /> */}
+      {<Header />}
       {children}
     </Container>
   );

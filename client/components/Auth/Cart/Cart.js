@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LayoutCart from "../../../layout/LayoutCart";
+import Layout from "../../../layout/Layout";
 import useCart from "../../../hooks/useCart";
 import { getComponentByIdAndSelectedApi } from "../../../api/shisha";
 import SummaryCart from "./SummaryCart/SummaryCart";
@@ -33,13 +33,13 @@ export default function Cart() {
   }, [reloadCart]);
 
   return products ? (
-    <LayoutCart>
+    <Layout>
       <FullCart products={productsData} setReloadCart={setReloadCart} />
-    </LayoutCart>
+    </Layout>
   ) : (
-    <LayoutCart>
+    <Layout>
       <EmptyCart />
-    </LayoutCart>
+    </Layout>
   );
 }
 

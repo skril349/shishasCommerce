@@ -1,6 +1,7 @@
 .header {
   padding-top: 20px;
-  background-color: transparent;
+  background-color: /* transparent */ black;
+  color:white;/**/
   display: flex;
   width: 100%;
   // position: absolute;
@@ -53,6 +54,6 @@
       }
     }
   }
-  /*position: fixed;
-  background-color: black;*/
+ /*  position: fixed;
+  background-color: black; */
 }
